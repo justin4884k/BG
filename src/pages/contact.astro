@@ -173,23 +173,40 @@ import PageHero from '../components/PageHero.astro';
 <script>
   const form   = document.getElementById('contact-form') as HTMLFormElement;
   const status = document.getElementById('form-status')!;
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     status.className = 'form-status';
-    status.textContent = 'Sending…';
+    status.textContent = '';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
 
     const data = Object.fromEntries(new FormData(form));
     console.log('Form data:', data);
 
-    // ── Connect a real form backend here ──────────────────────
-    // Formspree: await fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(form), headers:{ Accept:'application/json' } })
-    // ──────────────────────────────────────────────────────────
+    try { const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form))),
+    });
 
-    await new Promise(r => setTimeout(r, 700));
-    form.reset();
-    status.className = 'form-status success';
-    status.textContent = "Message sent! We'll be in touch soon.";
-    setTimeout(() => { status.textContent = ''; }, 6000);
+    const json = await res.json().catch(() => ({ ok: false, error: 'Unexpected error.' }));
+
+    if (json.ok) {
+      form.reset();
+      status.className = 'form-status success';
+      status.textContent = "Message sent! We'll be in touch soon. Check your inbox for a confirmation.";
+      setTimeout(() => { status.textContent = ''; }, 8000);
+    } else {
+      status.className = 'form-status error';
+      status.textContent = json.error ?? 'Something went wrong. Please try again.';
+    } } catch {
+      status.className = 'form-status error';
+      status.textContent = 'Network error. Please check your connection and try again.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
   });
 </script>
