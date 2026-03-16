@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+<Layout title="RC Kidz" description="RC Kidz is Rest Church's children's ministry for ages 0–12. Fun, safe, and faith-filled every Sunday at 10 AM.">
+  <PageHero eyebrow="Children's Ministry" title="RC Kidz" subtitle="Changing the world — one child at a time. A fun and safe faith environment for children ages 0–12." breadcrumb={[{ label:'Ministries', href:'/ministries' }, { label:'RC Kidz', href:'' }]} bgImage="https://brazengrace.org/wp-content/uploads/2020/11/Brazen-Kidz-Banner-Photo-scaled.jpg" />
+
+  <section class="section">
+    <div class="container">
+      <div class="ministry-layout">
+        <div class="ministry-main">
+          <h2>About RC Kidz</h2>
+          <p>RC Kidz is the children's ministry of Rest Church, dedicated to teaching foundational Christian principles in a fun and safe environment. Every Sunday morning, children from birth through age 12 encounter God's love through age-appropriate Bible stories, creative activities, worship, and prayer.</p>
+          <p>Our vision is simple: <strong>RC Kidz — changing the world!</strong> We believe this generation carries incredible potential, and it's our privilege to inspire, equip, and encourage them to step into the destiny God has prepared for them.</p>
+
+          <h3>Age Groups</h3>
+          <div class="age-grid">
+            {[
+              { range:'0 – 2 Years', label:'Nursery', desc:'A safe, nurturing environment for your littlest ones while you worship.' },
+              { range:'3 – 5 Years', label:'Preschool', desc:'Bible stories, songs, crafts, and play that introduce young hearts to Jesus.' },
+              { range:'6 – 12 Years', label:'Elementary', desc:'Engaging teaching, interactive activities, and worship that build strong foundations.' },
+            ].map(ag => (
+              <div class="age-card">
+                <div class="age-range">{ag.range}</div>
+                <div class="age-label">{ag.label}</div>
+                <p>{ag.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <h3>What Happens Each Sunday?</h3>
+          <ul class="feature-list">
+            <li>Age-appropriate Bible teaching and stories</li>
+            <li>Worship music and creative expression</li>
+            <li>Prayer and ministry time for children</li>
+            <li>Fun activities and group interaction</li>
+            <li>Safe, supervised environment with trained volunteers</li>
+          </ul>
+
+          <h3>Gallery</h3>
+          <div class="ministry-gallery">
+            {[
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/Brazen-Kidz-Banner-Photo-scaled.jpg', alt:'RC Kidz children worship' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/Brazen-Kidz-Collage-picture-1.jpg',  alt:'RC Kidz activity' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/Brazen-Kidz-Collage-picture-2.jpg',  alt:'RC Kidz children' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/Brazen-Kidz-Collage-picture-3.jpg',  alt:'RC Kidz group' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/Brazen-Kidz-Collage-picture-4.jpg',  alt:'RC Kidz fun' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/08/Photo-Jan-05-10-21-42-AM.jpg',        alt:'RC Kidz Sunday' },
+            ].map(p => (
+              <div class="gallery-item">
+                <img src={p.src} alt={p.alt} loading="lazy" />
+              </div>
+            ))}
+          </div>
+
+          <h3>Volunteer With Us</h3>
+          <p>RC Kidz thrives because of passionate volunteers who love children and love God. If you feel called to invest in the next generation, we'd love to have you on the team.</p>
+          <a href="/contact" class="btn btn-primary">Get Involved</a>
+        </div>
+
+        <aside class="ministry-sidebar">
+          <div class="sidebar-card">
+            <h4>Service Info</h4>
+            <div class="info-row"><span class="info-label">When</span><span>Sundays · 10:00 AM</span></div>
+            <div class="info-row"><span class="info-label">Ages</span><span>0 – 12 Years</span></div>
+            <div class="info-row"><span class="info-label">Where</span><span>19314 US-281 N, Suite 101</span></div>
+            <a href="/contact" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.25rem;">Join Us This Sunday</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Other Ministries</h4>
+            <ul class="sidebar-links">
+              <li><a href="/ministries/rc-youth">RC Youth →</a></li>
+              <li><a href="/ministries/women-of-rest">Women of Rest →</a></li>
+              <li><a href="/ministries/epic-life-groups">EPIC Life Groups →</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .ministry-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; align-items: start; }
+  .ministry-main h2 { font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; }
+  .ministry-main h3 { font-size: 1.2rem; color: var(--navy); margin: 2rem 0 .85rem; }
+  .ministry-main p  { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+  .age-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem 0 1.5rem; }
+  .age-card { padding: 1.25rem; background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); }
+  .age-range { font-size: .7rem; font-weight: 700; letter-spacing: .1em; color: var(--gold); text-transform: uppercase; margin-bottom: .3rem; }
+  .age-label { font-weight: 700; color: var(--navy); font-size: 1rem; margin-bottom: .5rem; }
+  .age-card p { font-size: .82rem; color: var(--muted); line-height: 1.6; margin: 0; }
+  .feature-list { margin: 1rem 0 1.5rem 1.25rem; display: flex; flex-direction: column; gap: .5rem; list-style: disc; }
+  .feature-list li { font-size: .93rem; color: var(--muted); line-height: 1.65; }
+  .sidebar-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+  .sidebar-card h4 { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
+  .info-row { display: flex; justify-content: space-between; gap: .5rem; font-size: .875rem; padding: .55rem 0; border-bottom: 1px solid var(--border); }
+  .info-row:last-of-type { border-bottom: none; }
+  .info-label { font-weight: 600; color: var(--navy); }
+  .sidebar-links { display: flex; flex-direction: column; gap: .5rem; }
+  .sidebar-links a { font-size: .875rem; color: var(--navy); font-weight: 500; transition: color var(--transition); }
+  .sidebar-links a:hover { color: var(--gold); }
+  .ministry-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1rem 0 1.75rem; }
+  .gallery-item { aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; background: var(--surface); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  @media (max-width: 860px) { .ministry-layout { grid-template-columns: 1fr; } .age-grid { grid-template-columns: 1fr; } }
+</style>

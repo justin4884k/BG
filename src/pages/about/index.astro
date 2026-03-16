@@ -1,0 +1,214 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+
+<Layout
+  title="About Us"
+  description="Learn about Rest Church's vision, mission, core values, and heart for San Antonio, Texas."
+>
+
+  <PageHero
+    eyebrow="Who We Are"
+    title="About Rest Church"
+    subtitle="A thriving Christian community where everyone is embraced, empowered, and equipped to transform their world."
+    breadcrumb={[{ label: 'About Us', href: '' }]}
+  />
+
+  <!-- ── STORY ────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div>
+          <span class="section-label">Our Story</span>
+          <h2 class="section-heading">Built on Grace</h2>
+          <p>Rest Church — rooted in the name Brazen Grace Fellowship — was founded on the radical belief that God's grace is sufficient for every person, in every season. We exist to be a home where people encounter the living God and discover who He made them to be.</p>
+          <p>The word "REST" defines our philosophy. It's not passivity — it's a dynamic, transformative posture of confidence in God's finished work. From that place of rest, believers discover purpose, step into calling, and change their world.</p>
+          <p>Located in the heart of San Antonio, Texas, we are a multi-generational, multicultural community committed to the Gospel of Grace.</p>
+          <div class="story-links">
+            <a href="/about/beliefs"    class="btn btn-outline-navy">Our Beliefs</a>
+            <a href="/about/leadership" class="btn btn-outline-navy">Our Leadership</a>
+          </div>
+        </div>
+        <div class="story-img-col">
+          <div class="story-img">
+            <img
+              src="https://brazengrace.org/wp-content/uploads/2020/11/About-Us-page-_Our-Beliefs_-section-1.jpg"
+              alt="Rest Church community"
+              loading="lazy"
+            />
+          </div>
+          <div class="story-stats">
+            <div class="stat">
+              <div class="stat-num">10 AM</div>
+              <div class="stat-label">Every Sunday</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">6+</div>
+              <div class="stat-label">Ministries</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">SA</div>
+              <div class="stat-label">San Antonio, TX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VISION & MISSION ──────────────────────────────────────── -->
+  <section class="section" style="background:var(--navy)">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label" style="color:var(--gold-light)">Why We Exist</span>
+        <h2 class="section-heading" style="color:#fff">Vision & Mission</h2>
+      </div>
+      <div class="vm-grid">
+        <div class="vm-card">
+          <div class="vm-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <h3>Our Vision</h3>
+          <blockquote>"A church for all people, where everyone feels embraced, empowered, and equipped to transform their world through the Grace of the Trinity."</blockquote>
+        </div>
+        <div class="vm-card">
+          <div class="vm-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Our Mission</h3>
+          <blockquote>"Rest Church is a welcoming home for all, rooted in the unconditional love of the Father, the finished Work of the resurrected Christ, and the joy and fellowship of the Holy Spirit."</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CORE VALUES ───────────────────────────────────────────── -->
+  <section class="section" style="background:var(--cream)">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">What We Stand For</span>
+        <h2 class="section-heading">Our 7 Core Values</h2>
+        <p class="section-sub">These values shape every decision, ministry, and moment at Rest Church.</p>
+      </div>
+      <div class="values-grid">
+        {[
+          { num:'01', name:'Good News',    desc:'Revealing Christ and our union with the Trinity — the Gospel of grace is at the center of everything we do.' },
+          { num:'02', name:'Community',    desc:'Doing life together in authentic, vulnerable, and loving relationship with one another.' },
+          { num:'03', name:'Honor',        desc:'Valuing what God values — every person carries inherent worth and dignity as image-bearers of God.' },
+          { num:'04', name:'Faith',        desc:'With God all things are possible. We choose to believe His Word over circumstances.' },
+          { num:'05', name:'Generosity',   desc:'We are blessed to be a blessing — giving freely of our time, talents, and treasure.' },
+          { num:'06', name:'Supernatural', desc:'Manifesting heaven on earth through the power and gifts of the Holy Spirit.' },
+          { num:'07', name:'Excellence',   desc:'We serve as unto the Lord — giving our best in every area of ministry and life.' },
+        ].map(v => (
+          <article class="value-card">
+            <div class="value-num">{v.num}</div>
+            <h3 class="value-name">{v.name}</h3>
+            <p class="value-desc">{v.desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ROW ───────────────────────────────────────────────── -->
+  <section class="section-sm" style="background:var(--white)">
+    <div class="container">
+      <div class="cta-row">
+        <div class="cta-block">
+          <h3>Explore Our Beliefs</h3>
+          <p>Dig into what we believe about Scripture, salvation, the Trinity, and more.</p>
+          <a href="/about/beliefs" class="btn btn-primary">Our Beliefs</a>
+        </div>
+        <div class="cta-block">
+          <h3>Meet Our Leadership</h3>
+          <p>Get to know Pastor Zack Cherian and the heart behind Rest Church.</p>
+          <a href="/about/leadership" class="btn btn-primary">Leadership</a>
+        </div>
+        <div class="cta-block">
+          <h3>Connect With Us</h3>
+          <p>Ready to take the next step? We'd love to hear from you.</p>
+          <a href="/contact" class="btn btn-primary">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .story-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .story-grid p {
+    font-size: 1.05rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.1rem;
+  }
+  .story-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; }
+  .story-img-col { display: flex; flex-direction: column; gap: 1.5rem; }
+  .story-img {
+    aspect-ratio: 4/3; border-radius: 16px;
+    overflow: hidden; background: #1B2B4B;
+  }
+  .story-img img { width: 100%; height: 100%; object-fit: cover; }
+  .story-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; text-align: center;
+  }
+  .stat {
+    padding: 1.25rem .75rem; background: var(--cream);
+    border: 1px solid var(--border); border-radius: var(--radius);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; color: var(--navy);
+  }
+  .stat-label { font-size: .72rem; color: var(--muted); margin-top: .2rem; text-transform: uppercase; letter-spacing: .07em; }
+
+  /* Vision / Mission */
+  .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .vm-card {
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09);
+    border-radius: var(--radius); padding: 2.25rem;
+  }
+  .vm-icon {
+    width: 52px; height: 52px; background: rgba(201,151,58,.15);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    color: var(--gold); margin-bottom: 1.25rem;
+  }
+  .vm-card h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.3rem;
+    color: #fff; margin-bottom: 1rem;
+  }
+  .vm-card blockquote {
+    font-size: .95rem; color: rgba(255,255,255,.65); line-height: 1.8;
+    border-left: 2px solid var(--gold); padding-left: 1rem; font-style: italic;
+  }
+
+  /* Values */
+  .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+  .value-card {
+    padding: 1.5rem; background: var(--white);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .value-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .value-num  { font-size: .68rem; font-weight: 700; letter-spacing: .12em; color: var(--gold); margin-bottom: .4rem; }
+  .value-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); margin-bottom: .45rem; }
+  .value-desc { font-size: .845rem; color: var(--muted); line-height: 1.65; }
+
+  /* CTA row */
+  .cta-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .cta-block {
+    text-align: center; padding: 2rem 1.5rem;
+    background: var(--cream); border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .cta-block h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: .6rem; }
+  .cta-block p  { font-size: .875rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
+
+  @media (max-width: 900px) {
+    .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .vm-grid    { grid-template-columns: 1fr; }
+    .cta-row    { grid-template-columns: 1fr; }
+  }
+</style>

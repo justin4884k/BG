@@ -1,0 +1,109 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+<Layout title="EPIC Life Groups" description="EPIC Life Groups — Equipping People In Christ — are weekly city-wide groups in San Antonio for worship, prayer, and Bible study.">
+  <PageHero eyebrow="Life Groups" title="EPIC Life Groups" subtitle="Equipping People In Christ — weekly groups across San Antonio connecting believers through Word, prayer, and authentic community." breadcrumb={[{ label:'Ministries', href:'/ministries' }, { label:'EPIC Life Groups', href:'' }]} bgImage="https://brazengrace.org/wp-content/uploads/2020/11/EPIC-Group-Collage-Pic-1.jpg" />
+
+  <section class="section">
+    <div class="container">
+      <div class="ministry-layout">
+        <div class="ministry-main">
+          <h2>What is EPIC?</h2>
+          <p>EPIC stands for <strong>Equipping People In Christ</strong>. EPIC Life Groups are weekly gatherings hosted throughout San Antonio that connect believers in smaller, more intimate settings for worship, prayer, and Bible study.</p>
+          <p>We believe the local church is not just what happens on Sunday morning — it's a seven-day-a-week community. Life Groups are where that community truly comes alive.</p>
+
+          <h3>Three Core Purposes</h3>
+          <div class="purpose-grid">
+            {[
+              { num:'01', title:'Equip',   sub:'with the Word',          desc:'Every group is grounded in Scripture. We believe the Word of God is alive, active, and relevant to every area of life.' },
+              { num:'02', title:'Edify',   sub:'through love',           desc:'We build each other up. Life Groups are a space of encouragement, accountability, and genuine care for one another.' },
+              { num:'03', title:'Empower', sub:'by the Holy Spirit',     desc:'We welcome the power and presence of the Holy Spirit in every gathering — believing for transformation, healing, and breakthrough.' },
+            ].map(p => (
+              <div class="purpose-card">
+                <div class="purpose-num">{p.num}</div>
+                <h3>{p.title} <span>{p.sub}</span></h3>
+                <p>{p.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <h3>What Happens in a Life Group?</h3>
+          <ul class="feature-list">
+            <li>Worship — bringing our hearts together before God</li>
+            <li>Prayer — intercession and personal prayer ministry</li>
+            <li>Bible Study — diving deep into the Word together</li>
+            <li>Fellowship — real conversation, real relationship</li>
+            <li>Outreach — serving our neighborhoods together</li>
+          </ul>
+
+          <h3>Gallery</h3>
+          <div class="ministry-gallery">
+            {[
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/EPIC-Group-Collage-Pic-1.jpg', alt:'EPIC Life Group gathering' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/EPIC-Group-Collage-Pic-2.jpg', alt:'EPIC Life Group worship' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/EPIC-Group-Collage-Pic-3.jpg', alt:'EPIC Life Group community' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/EPIC-Group-Collage-Pic-4.jpg', alt:'EPIC Life Group prayer' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/11/EPIC-Group-Collage-Pic-5.jpg', alt:'EPIC Life Group Bible study' },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/07/lifegroup6.png',               alt:'EPIC Life Group fellowship' },
+            ].map(p => (
+              <div class="gallery-item">
+                <img src={p.src} alt={p.alt} loading="lazy" />
+              </div>
+            ))}
+          </div>
+
+          <h3>Find a Group</h3>
+          <p>We have EPIC Life Groups meeting in various locations throughout San Antonio. Whether you're in the north side, south side, or anywhere in between — there's a group near you. Reach out and we'll connect you to a group that fits your schedule and location.</p>
+          <a href="/contact" class="btn btn-primary">Find a Group Near You</a>
+        </div>
+
+        <aside class="ministry-sidebar">
+          <div class="sidebar-card">
+            <h4>Group Info</h4>
+            <div class="info-row"><span class="info-label">When</span><span>Weekly</span></div>
+            <div class="info-row"><span class="info-label">Location</span><span>City-wide (San Antonio)</span></div>
+            <div class="info-row"><span class="info-label">Format</span><span>Worship, Prayer, Bible Study</span></div>
+            <a href="/contact" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.25rem;">Join a Group</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Other Ministries</h4>
+            <ul class="sidebar-links">
+              <li><a href="/ministries/rc-youth">RC Youth →</a></li>
+              <li><a href="/ministries/womens-breakfast">Women of Rest →</a></li>
+              <li><a href="/ministries/rc-cares">RC Cares →</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .ministry-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; align-items: start; }
+  .ministry-main h2 { font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; }
+  .ministry-main h3 { font-size: 1.2rem; color: var(--navy); margin: 2rem 0 .85rem; }
+  .ministry-main p  { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+  .purpose-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin: 1rem 0 1.5rem; }
+  .purpose-card { padding: 1.5rem; background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); }
+  .purpose-num { font-size: .65rem; font-weight: 700; letter-spacing: .14em; color: var(--gold); text-transform: uppercase; margin-bottom: .4rem; }
+  .purpose-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: .4rem; }
+  .purpose-card h3 span { font-size: .85rem; color: var(--muted); font-family: 'Inter',sans-serif; font-weight: 500; display:block; }
+  .purpose-card p { font-size: .83rem; color: var(--muted); line-height: 1.65; margin:0; }
+  .feature-list { margin: 1rem 0 1.5rem 1.25rem; display: flex; flex-direction: column; gap: .5rem; list-style: disc; }
+  .feature-list li { font-size: .93rem; color: var(--muted); line-height: 1.65; }
+  .sidebar-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+  .sidebar-card h4 { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
+  .info-row { display: flex; justify-content: space-between; gap: .5rem; font-size: .875rem; padding: .55rem 0; border-bottom: 1px solid var(--border); }
+  .info-row:last-of-type { border-bottom: none; }
+  .info-label { font-weight: 600; color: var(--navy); }
+  .sidebar-links { display: flex; flex-direction: column; gap: .5rem; }
+  .sidebar-links a { font-size: .875rem; color: var(--navy); font-weight: 500; transition: color var(--transition); }
+  .sidebar-links a:hover { color: var(--gold); }
+  .ministry-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1rem 0 1.75rem; }
+  .gallery-item { aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; background: var(--surface); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  @media (max-width: 860px) { .ministry-layout { grid-template-columns: 1fr; } .purpose-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+<Layout title="Women of Rest" description="Women of Rest empowers women to know their identity in Christ through monthly gatherings at Rest Church, San Antonio.">
+  <PageHero eyebrow="Women's Ministry" title="Women of Rest" subtitle="Every woman will know and receive the love, validation, and affirmation that Jesus provides — and be launched wholly into her destiny." breadcrumb={[{ label:'Ministries', href:'/ministries' }, { label:'Women of Rest', href:'' }]} bgImage="https://brazengrace.org/wp-content/uploads/2022/01/IMG_6774-scaled.jpg" />
+
+  <section class="section">
+    <div class="container">
+      <div class="ministry-layout">
+        <div class="ministry-main">
+          <h2>About Women of Rest</h2>
+          <p>Women of Rest is dedicated to empowering women through Christian fellowship, spiritual growth, and a deep understanding of their God-given identity. We believe that women have an especially important place in the church — and in the world.</p>
+          <p>Our heart: <em>"Every woman will know and receive the love, validation, and affirmation that Jesus provides, and thus be launched wholly into her destiny."</em></p>
+
+          <h3>Our Mission</h3>
+          <p>Women of Rest exists to help women define themselves first and foremost by who they are in Christ — not by what they do, what they've been through, or what others say about them. We are a close-knit family of women who love Jesus and empower each other to walk in freedom and purpose.</p>
+
+          <h3>What to Expect</h3>
+          <div class="what-grid">
+            {[
+              { title:'Shared Meals',     desc:'Food, fellowship, and conversation in a warm, welcoming atmosphere.' },
+              { title:'Worship',          desc:'Corporate worship that centers our hearts on God and His goodness.' },
+              { title:'Ministry Time',    desc:'Spirit-led ministry moments where women encounter healing and freedom.' },
+              { title:'One-on-One Prayer', desc:'Dedicated prayer time where every woman can receive personal prayer.' },
+            ].map(w => (
+              <div class="what-card">
+                <h4>{w.title}</h4>
+                <p>{w.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <h3>Gallery</h3>
+          <div class="ministry-gallery">
+            {[
+              { src:'https://brazengrace.org/wp-content/uploads/2022/01/IMG_6774-scaled.jpg',    alt:'Women of Rest gathering' },
+              { src:'https://brazengrace.org/wp-content/uploads/2022/01/IMG_7440-3-scaled.jpg',  alt:'Women of Rest worship' },
+              { src:'https://brazengrace.org/wp-content/uploads/2022/01/IMG_2497-scaled.jpg',    alt:'Women of Rest community' },
+              { src:'https://brazengrace.org/wp-content/uploads/2022/01/IMG_2097-scaled.jpg',    alt:'Women of Rest fellowship' },
+              { src:'https://brazengrace.org/wp-content/uploads/2022/01/IMG_1979-scaled.jpg',    alt:'Women of Rest prayer' },
+              { src:'https://brazengrace.org/wp-content/uploads/2022/01/IMG_8337-scaled.jpg',    alt:'Women of Rest ministry' },
+            ].map(p => (
+              <div class="gallery-item">
+                <img src={p.src} alt={p.alt} loading="lazy" />
+              </div>
+            ))}
+          </div>
+
+          <h3>Our Vision</h3>
+          <p>"Every woman has a powerful destiny and we believe that women have an especially important place in the church — that's why Women of Rest is dedicated to encouraging women to firstly define themselves by who they are in Christ."</p>
+          <p>Whether you're new to faith, been walking with God for years, or somewhere in between — you are welcome here. Come as you are and discover who God says you are.</p>
+          <a href="/contact" class="btn btn-primary">Join Us</a>
+        </div>
+
+        <aside class="ministry-sidebar">
+          <div class="sidebar-card">
+            <h4>Meeting Info</h4>
+            <div class="info-row"><span class="info-label">When</span><span>Monthly · Saturdays</span></div>
+            <div class="info-row"><span class="info-label">Time</span><span>10:00 AM – 12:00 PM</span></div>
+            <div class="info-row"><span class="info-label">Where</span><span>19314 US-281 N, Suite 101</span></div>
+            <a href="/contact" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.25rem;">Find Out Next Date</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Other Ministries</h4>
+            <ul class="sidebar-links">
+              <li><a href="/ministries/mens-breakfast">Men's Breakfast →</a></li>
+              <li><a href="/ministries/epic-life-groups">EPIC Life Groups →</a></li>
+              <li><a href="/ministries/rc-kidz">RC Kidz →</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .ministry-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; align-items: start; }
+  .ministry-main h2 { font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; }
+  .ministry-main h3 { font-size: 1.2rem; color: var(--navy); margin: 2rem 0 .85rem; }
+  .ministry-main p  { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+  .ministry-main em { font-style: italic; color: var(--navy); font-weight: 500; }
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 1.5rem; }
+  .what-card { padding: 1.25rem; background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); }
+  .what-card h4 { font-size: 1rem; color: var(--navy); margin-bottom: .4rem; }
+  .what-card p  { font-size: .84rem; color: var(--muted); line-height: 1.6; margin: 0; }
+  .sidebar-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+  .sidebar-card h4 { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
+  .info-row { display: flex; justify-content: space-between; gap: .5rem; font-size: .875rem; padding: .55rem 0; border-bottom: 1px solid var(--border); }
+  .info-row:last-of-type { border-bottom: none; }
+  .info-label { font-weight: 600; color: var(--navy); }
+  .sidebar-links { display: flex; flex-direction: column; gap: .5rem; }
+  .sidebar-links a { font-size: .875rem; color: var(--navy); font-weight: 500; transition: color var(--transition); }
+  .sidebar-links a:hover { color: var(--gold); }
+  .ministry-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1rem 0 1.75rem; }
+  .gallery-item { aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; background: var(--surface); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  @media (max-width: 860px) { .ministry-layout { grid-template-columns: 1fr; } .what-grid { grid-template-columns: 1fr; } }
+</style>

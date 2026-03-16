@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout
+  title="Contact Us"
+  description="Get in touch with Rest Church in San Antonio, TX. Call us, visit us, or send a message — we'd love to connect."
+>
+
+  <PageHero
+    eyebrow="Get In Touch"
+    title="Contact Us"
+    subtitle="Whether you have a question, need prayer, or want to get involved — we'd love to hear from you."
+    breadcrumb={[{ label: 'Contact', href: '' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Info column -->
+        <div class="contact-info">
+
+          <div class="info-block">
+            <div class="icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Address</div>
+              <div class="info-val">19314 U.S. 281 N, Suite 101<br>San Antonio, TX 78256</div>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15.92v1z"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Phone / Prayer Line</div>
+              <div class="info-val"><a href="tel:+12106502087">+1 (210) 650-2087</a></div>
+              <div class="info-note">Call us for prayer requests anytime</div>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Service Times</div>
+              <div class="info-val">Sunday Worship — 10:00 AM</div>
+              <div class="info-note">Grace Café opens at 9:30 AM</div>
+              <div class="info-val" style="margin-top:.4rem;">RC Youth — Wednesdays 7 PM</div>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Follow Us</div>
+              <div class="social-links" style="margin-top:.5rem;">
+                <a href="https://facebook.com/restchurchsa"     target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                </a>
+                <a href="https://instagram.com/rest.churchsa"   target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://youtube.com/@ZCIMTV"           target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/></svg>
+                </a>
+                <a href="https://twitter.com/brazengracesa"     target="_blank" rel="noopener" class="social-link" aria-label="Twitter / X">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="map-placeholder" role="img" aria-label="Map location of Rest Church">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <p>19314 US-281 N, Suite 101<br>San Antonio, TX 78256</p>
+            <a href="https://maps.google.com/?q=19314+US-281+N+Suite+101+San+Antonio+TX+78256" target="_blank" rel="noopener" class="btn btn-outline-white btn-sm" style="margin-top:.75rem;">Open in Maps ↗</a>
+          </div>
+
+        </div>
+
+        <!-- Form column -->
+        <div>
+          <h2 class="section-heading" style="margin-bottom:1.75rem;">Send Us a Message</h2>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-first">First Name</label>
+                <input type="text" id="cf-first" name="first_name" placeholder="Jane" required />
+              </div>
+              <div class="form-field">
+                <label for="cf-last">Last Name</label>
+                <input type="text" id="cf-last" name="last_name" placeholder="Doe" required />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cf-email">Email Address</label>
+              <input type="email" id="cf-email" name="email" placeholder="jane@example.com" required />
+            </div>
+            <div class="form-field">
+              <label for="cf-phone">Phone (optional)</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+1 (210) 000-0000" />
+            </div>
+            <div class="form-field">
+              <label for="cf-subject">I'd like to…</label>
+              <select id="cf-subject" name="subject">
+                <option value="">Select a reason</option>
+                <option value="connect">Connect with the church</option>
+                <option value="prayer">Request prayer</option>
+                <option value="jesus">Learn more about Jesus</option>
+                <option value="ministries">Join a ministry</option>
+                <option value="give">Ask about giving</option>
+                <option value="general">General question</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="cf-msg">Message</label>
+              <textarea id="cf-msg" name="message" placeholder="Tell us how we can help…" required></textarea>
+            </div>
+            <div class="form-footer">
+              <p class="form-status" id="form-status" aria-live="polite"></p>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .contact-layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4.5rem; align-items: start; }
+
+  .info-block { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.75rem; }
+  .info-label { font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+  .info-val   { font-size: .96rem; color: var(--text); line-height: 1.55; }
+  .info-val a { color: var(--navy); font-weight: 600; }
+  .info-note  { font-size: .78rem; color: var(--muted); margin-top: .2rem; }
+
+  .map-placeholder {
+    aspect-ratio: 16/9; max-height: 180px;
+    background: linear-gradient(135deg, #1B2B4B, #243758);
+    border-radius: var(--radius); display: flex;
+    flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 1.5rem; margin-top: 1.5rem;
+    gap: .5rem;
+  }
+  .map-placeholder p { font-size: .84rem; color: rgba(255,255,255,.55); line-height: 1.5; }
+
+  /* Form */
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: .75rem; margin-top: .25rem;
+  }
+
+  @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 3rem; } }
+</style>
+
+<script>
+  const form   = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status')!;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className = 'form-status';
+    status.textContent = 'Sending…';
+
+    const data = Object.fromEntries(new FormData(form));
+    console.log('Form data:', data);
+
+    // ── Connect a real form backend here ──────────────────────
+    // Formspree: await fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(form), headers:{ Accept:'application/json' } })
+    // ──────────────────────────────────────────────────────────
+
+    await new Promise(r => setTimeout(r, 700));
+    form.reset();
+    status.className = 'form-status success';
+    status.textContent = "Message sent! We'll be in touch soon.";
+    setTimeout(() => { status.textContent = ''; }, 6000);
+  });
+</script>

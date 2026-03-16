@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout
+  title="Give"
+  description="Support Rest Church's mission in San Antonio. Give online securely through Church Center."
+>
+
+  <PageHero
+    eyebrow="Partner With Us"
+    title="Give & Support"
+    subtitle="Your generosity partners with what God is doing through Rest Church — in San Antonio and beyond."
+    breadcrumb={[{ label: 'Give', href: '' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="give-layout">
+
+        <div class="give-main">
+          <span class="section-label">Why We Give</span>
+          <h2 class="section-heading">Generosity is a Core Value</h2>
+          <p>At Rest Church, we believe we are <em>blessed to be a blessing</em>. Generosity is not just something we do — it's who we are as people who have received the immeasurable grace of God.</p>
+          <p>Your giving directly supports our Sunday services, children's and youth ministry, outreach programs, worship, and every initiative that helps people in San Antonio encounter God and step into their purpose.</p>
+          <p>We believe that faithful, cheerful giving is both an act of worship and a declaration of faith. Thank you for being part of what God is building through Rest Church.</p>
+
+          <blockquote>"Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap." — Luke 6:38</blockquote>
+
+          <h3>How Your Gift Helps</h3>
+          <div class="impact-grid">
+            {[
+              { icon:'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z', label:'Sunday Services',    desc:'Supporting weekly worship, production, and hospitality.' },
+              { icon:'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M9 7a4 4 0 100 0',                                     label:'Children & Youth',   desc:'Equipping the next generation through RC Kidz and RC Youth.' },
+              { icon:'M9 11l3 3L22 4',                                                                                 label:'Community Outreach', desc:'Serving San Antonio through RC Cares and local missions.' },
+              { icon:'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',                                                   label:'Ministry Growth',    desc:'Expanding our reach through EPIC Life Groups city-wide.' },
+            ].map(item => (
+              <div class="impact-card">
+                <div class="icon-box icon-box-sm" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d={item.icon}/></svg>
+                </div>
+                <div class="impact-label">{item.label}</div>
+                <p>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <aside class="give-sidebar">
+          <div class="give-card">
+            <div class="give-card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <h3>Give Online</h3>
+            <p>Securely give online through our Church Center platform. One-time or recurring giving available.</p>
+            <a
+              href="https://app.churchcenter.com/giving"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+              style="width:100%; justify-content:center;"
+            >
+              Give Now →
+            </a>
+            <p class="secure-note">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              Secure · Powered by Church Center
+            </p>
+          </div>
+
+          <div class="sidebar-card" style="background:var(--cream); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; margin-top:1.25rem;">
+            <h4 style="font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; font-family:'Inter',sans-serif;">Other Ways to Give</h4>
+            <p style="font-size:.875rem; color:var(--muted); line-height:1.7;">You can also give in person during any Sunday service. Our team is happy to answer any questions about giving.</p>
+            <a href="/contact" class="btn btn-outline-navy btn-sm" style="margin-top:1rem; width:100%; justify-content:center;">Contact Us</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .give-layout { display: grid; grid-template-columns: 1fr 320px; gap: 4rem; align-items: start; }
+  .give-main p  { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.1rem; }
+  .give-main em { font-style: italic; color: var(--navy); font-weight: 500; }
+  .give-main h3 { font-size: 1.2rem; color: var(--navy); margin: 2rem 0 1rem; }
+  blockquote {
+    font-size: .95rem; color: var(--navy); border-left: 3px solid var(--gold);
+    padding: .85rem 1.25rem; background: var(--cream);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-style: italic; line-height: 1.7; margin: .5rem 0 2rem;
+  }
+
+  .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .impact-card { padding: 1.25rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); }
+  .impact-label { font-weight: 600; font-size: .9rem; color: var(--navy); margin: .65rem 0 .3rem; }
+  .impact-card p { font-size: .82rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+  .give-card {
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius); padding: 2rem;
+    text-align: center;
+  }
+  .give-card-icon {
+    width: 64px; height: 64px; background: rgba(201,151,58,.2);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: var(--gold-light); margin: 0 auto 1.25rem;
+  }
+  .give-card h3 { color: #fff; font-size: 1.35rem; margin-bottom: .65rem; }
+  .give-card > p { color: rgba(255,255,255,.65); font-size: .9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+  .secure-note {
+    display: flex; align-items: center; justify-content: center; gap: .4rem;
+    font-size: .72rem; color: rgba(255,255,255,.45); margin-top: .9rem;
+  }
+
+  @media (max-width: 900px) { .give-layout { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .impact-grid { grid-template-columns: 1fr; } }
+</style>

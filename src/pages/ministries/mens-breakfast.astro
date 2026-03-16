@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+<Layout title="Men's Breakfast" description="Men's Breakfast is a monthly gathering for men at Rest Church — food, fellowship, prayer, and biblical encouragement.">
+  <PageHero eyebrow="Men's Ministry" title="Men's Breakfast" subtitle="As iron sharpens iron, so one man sharpens another. Monthly fellowship, prayer, and biblical encouragement for men." breadcrumb={[{ label:'Ministries', href:'/ministries' }, { label:"Men's Breakfast", href:'' }]} bgImage="https://brazengrace.org/wp-content/uploads/2020/08/IMG_2279.jpg" />
+
+  <section class="section">
+    <div class="container">
+      <div class="ministry-layout">
+        <div class="ministry-main">
+          <h2>About Men's Breakfast</h2>
+          <p>Men's Breakfast is a monthly gathering for men at Rest Church built around food, fellowship, prayer, and uplifting biblical teaching. It's a space where men can be real, be known, and be sharpened by one another in the context of faith.</p>
+          <p>We believe men need more than just information — they need genuine relationships with other men who are pursuing God. Men's Breakfast creates that environment every month.</p>
+
+          <h3>What to Expect</h3>
+          <ul class="feature-list">
+            <li>A great shared meal to start the morning</li>
+            <li>One-on-one conversation and genuine connection</li>
+            <li>Uplifting, practical biblical teaching</li>
+            <li>Corporate prayer and personal prayer time</li>
+            <li>A welcoming environment for men of all backgrounds</li>
+          </ul>
+
+          <h3>Gallery</h3>
+          <div class="ministry-gallery">
+            {[
+              { src:'https://brazengrace.org/wp-content/uploads/2020/08/IMG_2279.jpg',              alt:"Men's Breakfast gathering" },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/08/IMG_3412.jpg',              alt:"Men's Breakfast fellowship" },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/08/IMG_9395.jpg',              alt:"Men's Breakfast community" },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/08/Photo-Dec-07-9-27-22-AM.jpg', alt:"Men's Breakfast prayer" },
+              { src:'https://brazengrace.org/wp-content/uploads/2020/08/Photo-Nov-02-10-39-32-AM.jpg', alt:"Men's Breakfast meal" },
+            ].map(p => (
+              <div class="gallery-item">
+                <img src={p.src} alt={p.alt} loading="lazy" />
+              </div>
+            ))}
+          </div>
+
+          <h3>Our Foundation</h3>
+          <blockquote>"As iron sharpens iron, so one man sharpens another." — Proverbs 27:17</blockquote>
+          <p>We were never meant to do life alone. Men's Breakfast exists to give men a regular, consistent space to be encouraged, challenged, and equipped to lead well in every area of life — their homes, workplaces, and communities.</p>
+
+          <h3>Who Should Come?</h3>
+          <p>Every man is welcome — regardless of where you are in your faith journey. Whether you've been following Jesus for decades or you're just curious, Men's Breakfast is a judgment-free, grace-filled space for you.</p>
+          <a href="/contact" class="btn btn-primary">Join Us Next Month</a>
+        </div>
+
+        <aside class="ministry-sidebar">
+          <div class="sidebar-card">
+            <h4>Event Info</h4>
+            <div class="info-row"><span class="info-label">When</span><span>Monthly · Saturdays</span></div>
+            <div class="info-row"><span class="info-label">Time</span><span>9:00 – 11:00 AM</span></div>
+            <div class="info-row"><span class="info-label">Where</span><span>19314 US-281 N, Suite 101</span></div>
+            <a href="/contact" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.25rem;">Get the Next Date</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Other Ministries</h4>
+            <ul class="sidebar-links">
+              <li><a href="/ministries/women-of-rest">Women of Rest →</a></li>
+              <li><a href="/ministries/epic-life-groups">EPIC Life Groups →</a></li>
+              <li><a href="/ministries/rc-cares">RC Cares →</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .ministry-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; align-items: start; }
+  .ministry-main h2 { font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; }
+  .ministry-main h3 { font-size: 1.2rem; color: var(--navy); margin: 2rem 0 .85rem; }
+  .ministry-main p  { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+  .feature-list { margin: 1rem 0 1.5rem 1.25rem; display: flex; flex-direction: column; gap: .5rem; list-style: disc; }
+  .feature-list li { font-size: .93rem; color: var(--muted); line-height: 1.65; }
+  blockquote { font-size: .95rem; color: var(--navy); border-left: 3px solid var(--gold); padding: .75rem 1.25rem; background: var(--cream); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-style: italic; line-height: 1.7; margin: .5rem 0 1.5rem; }
+  .sidebar-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+  .sidebar-card h4 { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
+  .info-row { display: flex; justify-content: space-between; gap: .5rem; font-size: .875rem; padding: .55rem 0; border-bottom: 1px solid var(--border); }
+  .info-row:last-of-type { border-bottom: none; }
+  .info-label { font-weight: 600; color: var(--navy); }
+  .sidebar-links { display: flex; flex-direction: column; gap: .5rem; }
+  .sidebar-links a { font-size: .875rem; color: var(--navy); font-weight: 500; transition: color var(--transition); }
+  .sidebar-links a:hover { color: var(--gold); }
+  .ministry-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1rem 0 1.75rem; }
+  .gallery-item { aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; background: var(--surface); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  @media (max-width: 860px) { .ministry-layout { grid-template-columns: 1fr; } }
+</style>

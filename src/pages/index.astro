@@ -1,0 +1,537 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home">
+
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <img
+      src="https://brazengrace.org/wp-content/uploads/2022/01/IMG_7440-2.jpg"
+      alt=""
+      class="hero-photo"
+      aria-hidden="true"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <svg class="hero-cross" aria-hidden="true" viewBox="0 0 100 100" fill="none">
+      <rect x="43" y="5"  width="14" height="90" fill="white"/>
+      <rect x="5"  y="34" width="90" height="14" fill="white"/>
+    </svg>
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Rest Church — San Antonio, Texas</p>
+        <h1 class="hero-title">Doing Life <em>Together</em></h1>
+        <p class="hero-sub">Rest Church is a thriving community worshiping God together in San Antonio, Texas. All are welcome — come as you are.</p>
+        <div class="hero-actions">
+          <a href="/contact" class="btn btn-primary">Connect With Us</a>
+          <a href="/live"    class="btn btn-outline-white">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/>
+            </svg>
+            Watch Us Live
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── SERVICE TIMES BAR ──────────────────────────────────────── -->
+  <div class="times-bar">
+    <div class="container">
+      <ul class="times-list" role="list">
+        <li class="time-item">
+          <div class="time-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="time-label">Sunday Service</div>
+            <div class="time-val">10:00 AM</div>
+          </div>
+        </li>
+        <li class="time-divider" aria-hidden="true"></li>
+        <li class="time-item">
+          <div class="time-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <div class="time-label">Grace Café</div>
+            <div class="time-val">9:30 AM Sunday</div>
+          </div>
+        </li>
+        <li class="time-divider" aria-hidden="true"></li>
+        <li class="time-item">
+          <div class="time-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div class="time-label">RC Youth</div>
+            <div class="time-val">7:00 PM Wednesdays</div>
+          </div>
+        </li>
+        <li class="time-divider" aria-hidden="true"></li>
+        <li class="time-item">
+          <div class="time-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="time-label">Location</div>
+            <div class="time-val">19314 US-281 N, Suite 101</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── WELCOME ────────────────────────────────────────────────── -->
+  <section class="section welcome-section">
+    <div class="container">
+      <div class="welcome-grid">
+        <div class="welcome-img-wrap">
+          <div class="welcome-img">
+            <img
+              src="https://brazengrace.org/wp-content/uploads/2020/11/About-Us-Page-_Our-Mission.jpg"
+              alt="Rest Church community worship"
+              loading="lazy"
+              style="width:100%; height:100%; object-fit:cover; border-radius:16px;"
+            />
+          </div>
+          <div class="welcome-badge">
+            <strong>10 AM</strong>
+            <span>Every Sunday</span>
+          </div>
+        </div>
+        <div class="welcome-text">
+          <span class="section-label">Welcome</span>
+          <h2 class="section-heading">God Values You</h2>
+          <p>"REST" is not passive — it's a dynamic, transformative experience that empowers you to discover your purpose and fulfill your calling through divine strength.</p>
+          <p>No matter where you're from or what you've been through, you are embraced, empowered, and equipped here. God has an incredible plan for your life.</p>
+          <a href="/about" class="btn btn-outline-navy" style="margin-top:1.5rem;">Learn About Us</a>
+          <div class="pastor-sig">
+            <div class="pastor-avatar">ZC</div>
+            <div>
+              <div class="sig-name">Pastor Zack Cherian</div>
+              <div class="sig-title">Senior Pastor, Rest Church</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MISSION CARDS ──────────────────────────────────────────── -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label" style="color:var(--gold-light)">Who We Are</span>
+        <h2 class="section-heading" style="color:#fff">Our Vision & Mission</h2>
+      </div>
+      <div class="mission-grid">
+        <article class="mission-card">
+          <div class="icon-box icon-box-sm" style="background:rgba(201,151,58,.15); color:var(--gold); margin-bottom:1.25rem;" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <h3>Vision</h3>
+          <p>A church for all people, where everyone feels embraced, empowered, and equipped to transform their world through the Grace of the Trinity.</p>
+        </article>
+        <article class="mission-card">
+          <div class="icon-box icon-box-sm" style="background:rgba(201,151,58,.15); color:var(--gold); margin-bottom:1.25rem;" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Mission</h3>
+          <p>A welcoming home for all, rooted in the unconditional love of the Father, the finished work of Christ, and the joy of the Holy Spirit.</p>
+        </article>
+        <article class="mission-card">
+          <div class="icon-box icon-box-sm" style="background:rgba(201,151,58,.15); color:var(--gold); margin-bottom:1.25rem;" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Community</h3>
+          <p>All believers comprise the priesthood, with the local church essential to empowering people across culture and establishing God's kingdom on earth.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MINISTRIES PREVIEW ─────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <span class="section-label">Get Involved</span>
+          <h2 class="section-heading">Our Ministries</h2>
+        </div>
+        <a href="/ministries" class="btn btn-outline-navy btn-sm">View All ›</a>
+      </div>
+      <div class="min-preview-grid">
+        {[
+          { href:'/ministries/rc-kidz',          title:'RC Kidz',          desc:'Fun & safe faith environment for children ages 0–12. Sunday mornings at 10 AM.',       tag:'Ages 0–12' },
+          { href:'/ministries/rc-youth',          title:'RC Youth',         desc:'High school & middle school students growing in faith. Wednesday nights at 7 PM.',    tag:'Wednesdays' },
+          { href:'/ministries/women-of-rest',     title:'Women of Rest',    desc:'Empowering women to know their identity in Christ through monthly gatherings.',       tag:'Monthly' },
+          { href:'/ministries/mens-breakfast',    title:"Men's Breakfast",  desc:'Monthly fellowship, prayer, and biblical teaching for men. As iron sharpens iron.',  tag:'Monthly' },
+          { href:'/ministries/epic-life-groups',  title:'EPIC Life Groups', desc:'Weekly city-wide life groups: Equipping People In Christ through Word and prayer.',  tag:'Weekly' },
+          { href:'/ministries/rc-cares',          title:'RC Cares',         desc:'Serving San Antonio with the love of Christ through practical community outreach.',   tag:'Outreach' },
+        ].map(m => (
+          <a href={m.href} class="min-card card">
+            <div class="min-card-bar" aria-hidden="true"></div>
+            <div class="min-card-body">
+              <h3>{m.title}</h3>
+              <p>{m.desc}</p>
+              <span class="tag">{m.tag}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EVENTS PREVIEW ─────────────────────────────────────────── -->
+  <section class="section" style="background:var(--cream)">
+    <div class="container">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <span class="section-label">Calendar</span>
+          <h2 class="section-heading">Upcoming Events</h2>
+        </div>
+        <a href="/events" class="btn btn-outline-navy btn-sm">All Events ›</a>
+      </div>
+      <div class="events-list">
+        {[
+          { month:'Thu', day:'—',  name:'Weekly Prayer Call', meta:'Every Thursday · Online',               time:'8:00 – 8:30 PM',  img:'https://brazengrace.org/wp-content/uploads/2020/10/Weekly-Prayer-Call-Events-Section-Image.jpg' },
+          { month:'Sat', day:'11', name:"Men's Breakfast",    meta:'Monthly · 19314 US-281 N, Suite 101',   time:'9:00 – 11:00 AM', img:'https://brazengrace.org/wp-content/uploads/2020/10/Mens-Breakfast-Events-Section-Image.jpg' },
+          { month:'Sat', day:'18', name:'Women of Rest',      meta:'Monthly · 19314 US-281 N, Suite 101',   time:'10:00 AM – 12 PM',img:'https://brazengrace.org/wp-content/uploads/2020/10/Women-of-Grace-Events-Section-Picture.jpg' },
+          { month:'Sun', day:'—',  name:'Sunday Worship',     meta:'Every Sunday · In-person & Livestream', time:'10:00 AM CST',    img:'https://brazengrace.org/wp-content/uploads/2020/08/gc1.jpg' },
+        ].map(e => (
+          <article class="event-item">
+            <div class="event-thumb">
+              <img src={e.img} alt={e.name} loading="lazy" />
+            </div>
+            <div class="event-date">
+              <div class="event-date-month">{e.month}</div>
+              <div class="event-date-day">{e.day}</div>
+            </div>
+            <div>
+              <div class="event-name">{e.name}</div>
+              <div class="event-meta">{e.meta}</div>
+            </div>
+            <div class="event-time">{e.time}</div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERMON PREVIEW ─────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <span class="section-label">Watch & Listen</span>
+          <h2 class="section-heading">Recent Sermons</h2>
+        </div>
+        <a href="/media" class="btn btn-outline-navy btn-sm">All Sermons ›</a>
+      </div>
+      <div class="sermon-preview-grid">
+        {[
+          { series:'REST Series',     title:'REST — Part 4: Our Position in Christ', date:'Feb 9, 2020',  thumb:'https://i.ytimg.com/vi/rCgIBgZd1YA/sddefault.jpg' },
+          { series:'David Series',    title:'The David Series — Part 1',             date:'Aug 9, 2020',  thumb:'https://i.ytimg.com/vi/ye3ww-Y01ew/sddefault.jpg' },
+          { series:'Gospel of Grace', title:'Gospel of Grace — Part 3',             date:'2021',          thumb:'https://i.ytimg.com/vi/zY9qlEQIVrA/sddefault.jpg' },
+        ].map(s => (
+          <a href="/media" class="sermon-card card">
+            <div class="sermon-thumb">
+              <img src={s.thumb} alt={s.title} loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+              <div class="sermon-play" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="sermon-body">
+              <div class="sermon-series">{s.series}</div>
+              <div class="sermon-title">{s.title}</div>
+              <div class="sermon-meta">Pastor Zack Cherian · {s.date}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMMUNITY PHOTO STRIP ────────────────────────────────────── -->
+  <div class="photo-strip" aria-label="Rest Church community photos">
+    {[
+      'https://brazengrace.org/wp-content/uploads/2020/08/gc1.jpg',
+      'https://brazengrace.org/wp-content/uploads/2020/08/gc3.jpg',
+      'https://brazengrace.org/wp-content/uploads/2020/08/gc4.jpg',
+      'https://brazengrace.org/wp-content/uploads/2020/08/gc5.jpg',
+      'https://brazengrace.org/wp-content/uploads/2022/01/IMG_7440-2.jpg',
+    ].map((src, i) => (
+      <div class="strip-item">
+        <img src={src} alt={`Rest Church community photo ${i + 1}`} loading="lazy" />
+      </div>
+    ))}
+  </div>
+
+  <!-- ── KNOW JESUS CTA ─────────────────────────────────────────── -->
+  <section class="know-jesus-cta">
+    <div class="kj-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="kj-content">
+        <span class="section-label" style="color:var(--gold-light)">The Most Important Step</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); color:#fff; margin:.5rem 0 1rem;">Do You Know Jesus?</h2>
+        <p>God loves you and has an incredible plan for your life. Take the first step today.</p>
+        <div class="kj-actions">
+          <a href="/know-jesus" class="btn btn-primary">Learn More</a>
+          <a href="/contact"    class="btn btn-outline-white">Request Prayer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy-dark);
+    overflow: hidden;
+  }
+  .hero-photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 30%;
+    opacity: .22;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,151,58,.15) 0%, transparent 60%),
+      linear-gradient(160deg, rgba(8,15,28,.92) 0%, rgba(27,43,75,.88) 55%, rgba(36,55,88,.9) 100%);
+  }
+  .hero-cross {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(460px, 75vw); height: min(460px, 75vw);
+    opacity: .04; pointer-events: none;
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    padding: 7rem 1.5rem 4rem;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: .72rem; font-weight: 700;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 700; color: #fff;
+    line-height: 1.1; margin-bottom: 1.5rem;
+  }
+  .hero-title em { font-style: normal; color: var(--gold-light); }
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: rgba(255,255,255,.68); max-width: 500px;
+    margin: 0 auto 2.5rem; line-height: 1.75;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: .4rem;
+    color: rgba(255,255,255,.35); font-size: .68rem;
+    letter-spacing: .12em; text-transform: uppercase;
+    animation: scroll-bounce 2.2s ease-in-out infinite;
+  }
+  @keyframes scroll-bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(7px); }
+  }
+
+  /* Times bar */
+  .times-bar { background: var(--gold); color: #fff; padding: 1rem 0; }
+  .times-list { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; justify-content: center; }
+  .time-item  { display: flex; align-items: center; gap: .75rem; }
+  .time-icon  {
+    width: 36px; height: 36px; background: rgba(255,255,255,.2);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .time-label { font-size: .68rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; opacity: .82; }
+  .time-val   { font-size: .92rem; font-weight: 700; }
+  .time-divider { width: 1px; height: 32px; background: rgba(255,255,255,.3); }
+
+  /* Welcome */
+  .welcome-section { background: var(--cream); }
+  .welcome-grid {
+    display: grid; grid-template-columns: 1fr 1.1fr;
+    gap: 4rem; align-items: center;
+  }
+  .welcome-img-wrap { position: relative; }
+  .welcome-img {
+    aspect-ratio: 4/5; border-radius: 16px;
+    overflow: hidden;
+    background: #1B2B4B;
+  }
+  .welcome-badge {
+    position: absolute; bottom: -1.25rem; right: -1.25rem;
+    background: var(--gold); color: #fff;
+    border-radius: var(--radius); padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-md); text-align: center;
+    line-height: 1.3;
+  }
+  .welcome-badge strong { display: block; font-size: 1.6rem; font-weight: 700; }
+  .welcome-badge span   { font-size: .72rem; opacity: .85; }
+  .welcome-text p {
+    font-size: 1.05rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem;
+  }
+  .pastor-sig {
+    display: flex; align-items: center; gap: 1rem;
+    margin-top: 1.75rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .pastor-avatar {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-family: 'Playfair Display', serif;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .sig-name  { font-weight: 600; font-size: .9rem; }
+  .sig-title { font-size: .78rem; color: var(--gold); }
+
+  /* Mission */
+  .mission-section { background: var(--navy); }
+  .mission-section .section-heading { color: #fff; }
+  .mission-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .mission-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--radius); padding: 2rem;
+    transition: background var(--transition);
+  }
+  .mission-card:hover { background: rgba(255,255,255,.08); }
+  .mission-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; color: #fff; margin-bottom: .65rem;
+  }
+  .mission-card p { font-size: .9rem; color: rgba(255,255,255,.62); line-height: 1.75; }
+
+  /* Ministries preview */
+  .min-preview-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem;
+  }
+  .min-card { display: block; text-decoration: none; }
+  .min-card-bar { height: 4px; background: var(--gold); }
+  .min-card-body { padding: 1.5rem; }
+  .min-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: .5rem; }
+  .min-card p  { font-size: .875rem; color: var(--muted); line-height: 1.7; margin-bottom: .9rem; }
+
+  /* Events */
+  .events-list { display: flex; flex-direction: column; gap: .85rem; max-width: 740px; }
+  .event-item {
+    display: grid; grid-template-columns: 72px 60px 1fr auto;
+    align-items: center; gap: 1.25rem;
+    padding: .75rem 1.25rem .75rem .75rem;
+    background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: box-shadow var(--transition);
+  }
+  .event-item:hover { box-shadow: var(--shadow); }
+  .event-thumb {
+    width: 72px; height: 56px; border-radius: var(--radius-sm);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .event-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .event-date {
+    text-align: center; background: var(--navy);
+    color: #fff; border-radius: var(--radius-sm); padding: .45rem;
+    flex-shrink: 0;
+  }
+  .event-date-month { font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; opacity: .65; }
+  .event-date-day   { font-size: 1.4rem; font-weight: 700; font-family: 'Playfair Display', serif; line-height: 1.1; }
+  .event-name { font-weight: 600; font-size: .93rem; color: var(--navy); }
+  .event-meta { font-size: .78rem; color: var(--muted); margin-top: .2rem; }
+  .event-time { font-size: .78rem; font-weight: 600; color: var(--gold); white-space: nowrap; }
+
+  /* Sermon preview */
+  .sermon-preview-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .sermon-card { display: block; }
+  .sermon-thumb {
+    aspect-ratio: 16/9;
+    background: #0d1a30;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .sermon-play {
+    width: 46px; height: 46px; background: rgba(201,151,58,.9);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: #fff; transition: background var(--transition), transform var(--transition);
+  }
+  .sermon-card:hover .sermon-play { background: var(--gold); transform: scale(1.1); }
+  .sermon-body { padding: 1.1rem; }
+  .sermon-series { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+  .sermon-title  { font-size: .93rem; font-weight: 600; color: var(--navy); line-height: 1.35; margin-bottom: .3rem; }
+  .sermon-meta   { font-size: .75rem; color: var(--muted); }
+
+  /* Photo strip */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 220px;
+    overflow: hidden;
+  }
+  .strip-item { overflow: hidden; }
+  .strip-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+    display: block;
+  }
+  .strip-item:hover img { transform: scale(1.06); }
+
+  /* Know Jesus CTA */
+  .know-jesus-cta {
+    position: relative; background: var(--navy-dark); color: #fff;
+    padding: 5rem 0; text-align: center; overflow: hidden;
+  }
+  .kj-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,151,58,.14) 0%, transparent 70%);
+  }
+  .kj-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+  .kj-content p { color: rgba(255,255,255,.65); font-size: 1.05rem; line-height: 1.75; margin-bottom: 2rem; }
+  .kj-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .welcome-grid    { grid-template-columns: 1fr; gap: 2.5rem; }
+    .mission-grid    { grid-template-columns: 1fr; }
+    .sermon-preview-grid { grid-template-columns: 1fr 1fr; }
+    .welcome-badge   { bottom: -.75rem; right: -.75rem; }
+  }
+  @media (max-width: 600px) {
+    .sermon-preview-grid { grid-template-columns: 1fr; }
+    .event-item { grid-template-columns: 52px 1fr; }
+    .event-time { display: none; }
+    .time-divider { display: none; }
+    .times-list { gap: .75rem; }
+  }
+</style>

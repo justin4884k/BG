@@ -1,0 +1,351 @@
+---
+const pathname = Astro.url.pathname;
+const active = (path: string) =>
+  pathname === path || (path !== '/' && pathname.startsWith(path));
+---
+
+<header id="site-header">
+  <div class="container">
+    <nav class="nav-inner" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="/" class="nav-logo" aria-label="Rest Church — Home">
+        <img
+          src="https://brazengrace.org/wp-content/uploads/2024/11/rs1.png"
+          alt="Rest Church"
+          class="nav-logo-img"
+          width="120"
+          height="40"
+          loading="eager"
+        />
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+
+        <li>
+          <a href="/" class:list={['nav-link', { active: active('/') && pathname === '/' }]}>
+            Home
+          </a>
+        </li>
+
+        <!-- About dropdown -->
+        <li class="nav-dropdown">
+          <button
+            class:list={['nav-link dropdown-trigger', { active: active('/about') }]}
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            About Us
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/about"             role="menuitem" class:list={[{ active: active('/about') && pathname === '/about' }]}>About Us</a></li>
+            <li><a href="/about/beliefs"     role="menuitem" class:list={[{ active: active('/about/beliefs') }]}>Our Beliefs</a></li>
+            <li><a href="/about/leadership"  role="menuitem" class:list={[{ active: active('/about/leadership') }]}>Leadership</a></li>
+          </ul>
+        </li>
+
+        <!-- Ministries dropdown -->
+        <li class="nav-dropdown">
+          <button
+            class:list={['nav-link dropdown-trigger', { active: active('/ministries') }]}
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Ministries
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/ministries"                      role="menuitem">All Ministries</a></li>
+            <li><a href="/ministries/rc-kidz"              role="menuitem">RC Kidz</a></li>
+            <li><a href="/ministries/rc-youth"             role="menuitem">RC Youth</a></li>
+            <li><a href="/ministries/women-of-rest"        role="menuitem">Women of Rest</a></li>
+            <li><a href="/ministries/mens-breakfast"       role="menuitem">Men's Breakfast</a></li>
+            <li><a href="/ministries/epic-life-groups"     role="menuitem">EPIC Life Groups</a></li>
+            <li><a href="/ministries/rc-cares"             role="menuitem">RC Cares</a></li>
+          </ul>
+        </li>
+
+        <li><a href="/events"      class:list={['nav-link', { active: active('/events') }]}>Events</a></li>
+        <li><a href="/media"       class:list={['nav-link', { active: active('/media') }]}>Sermons</a></li>
+        <li><a href="/know-jesus"  class:list={['nav-link', { active: active('/know-jesus') }]}>Know Jesus</a></li>
+        <li><a href="/give"        class:list={['nav-link', { active: active('/give') }]}>Give</a></li>
+        <li><a href="/contact"     class:list={['nav-link', { active: active('/contact') }]}>Contact</a></li>
+      </ul>
+
+      <!-- CTA -->
+      <a href="/live" class="btn btn-primary btn-sm nav-cta">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/>
+        </svg>
+        Watch Live
+      </a>
+
+      <!-- Hamburger -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div id="mobile-nav" aria-hidden="true">
+  <nav>
+    <a href="/">Home</a>
+
+    <details>
+      <summary>About Us</summary>
+      <div class="mobile-sub">
+        <a href="/about">About Us</a>
+        <a href="/about/beliefs">Our Beliefs</a>
+        <a href="/about/leadership">Leadership</a>
+      </div>
+    </details>
+
+    <details>
+      <summary>Ministries</summary>
+      <div class="mobile-sub">
+        <a href="/ministries">All Ministries</a>
+        <a href="/ministries/rc-kidz">RC Kidz</a>
+        <a href="/ministries/rc-youth">RC Youth</a>
+        <a href="/ministries/women-of-rest">Women of Rest</a>
+        <a href="/ministries/mens-breakfast">Men's Breakfast</a>
+        <a href="/ministries/epic-life-groups">EPIC Life Groups</a>
+        <a href="/ministries/rc-cares">RC Cares</a>
+      </div>
+    </details>
+
+    <a href="/events">Events</a>
+    <a href="/media">Sermons</a>
+    <a href="/know-jesus">Know Jesus</a>
+    <a href="/give">Give</a>
+    <a href="/contact">Contact</a>
+    <a href="/live" class="btn btn-primary" style="justify-content:center; margin-top:.5rem;">Watch Live</a>
+  </nav>
+</div>
+
+<style>
+  /* Header shell */
+  #site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition), box-shadow var(--transition);
+  }
+  #site-header.scrolled {
+    border-color: var(--border);
+    box-shadow: 0 1px 12px rgba(0,0,0,.07);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-h);
+    gap: 1rem;
+  }
+
+  /* Logo */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .nav-logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Nav links */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+    flex-wrap: nowrap;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .45rem .65rem;
+    font-size: .845rem;
+    font-weight: 500;
+    color: var(--text);
+    border-radius: var(--radius-sm);
+    background: none;
+    border: none;
+    transition: color var(--transition), background var(--transition);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .nav-link:hover,
+  .nav-link.active { color: var(--navy); background: var(--surface); }
+  .nav-link.active  { font-weight: 600; }
+
+  /* Dropdown */
+  .nav-dropdown { position: relative; }
+
+  .dropdown-trigger svg {
+    transition: transform var(--transition);
+    opacity: .6;
+  }
+  .nav-dropdown:hover .dropdown-trigger svg { transform: rotate(180deg); }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + .5rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    min-width: 190px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    overflow: hidden;
+    z-index: 10;
+  }
+  .nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: .6rem 1.1rem;
+    font-size: .845rem;
+    color: var(--text);
+    transition: background var(--transition), color var(--transition);
+  }
+  .dropdown-menu a:hover,
+  .dropdown-menu a.active {
+    background: var(--cream);
+    color: var(--navy);
+  }
+  .dropdown-menu li + li { border-top: 1px solid var(--border); }
+
+  /* CTA button */
+  .nav-cta { margin-left: .25rem; }
+
+  /* Hamburger */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: .4rem;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: transform .25s, opacity .25s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile overlay */
+  #mobile-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    background: var(--white);
+    padding: calc(var(--header-h) + 1rem) 1.5rem 2rem;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+  }
+  #mobile-nav.open { display: flex; }
+
+  #mobile-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+  }
+
+  #mobile-nav a {
+    display: block;
+    padding: .85rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    transition: background var(--transition);
+  }
+  #mobile-nav a:hover { background: var(--surface); }
+
+  #mobile-nav details summary {
+    display: block;
+    padding: .85rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    cursor: pointer;
+    list-style: none;
+    transition: background var(--transition);
+  }
+  #mobile-nav details summary:hover { background: var(--surface); }
+  #mobile-nav details summary::-webkit-details-marker { display: none; }
+
+  .mobile-sub { padding-left: 1.25rem; }
+  .mobile-sub a { font-size: .9rem; color: var(--muted); }
+
+  /* Responsive toggle */
+  @media (max-width: 960px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-toggle { display: flex; }
+  }
+</style>
+
+<script>
+  const header    = document.getElementById('site-header')!;
+  const toggle    = document.getElementById('nav-toggle')!;
+  const mobileNav = document.getElementById('mobile-nav')!;
+
+  // Scroll shadow
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Mobile toggle
+  toggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    mobileNav.setAttribute('aria-hidden', String(!open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  // Close on nav link click
+  mobileNav.querySelectorAll('a').forEach(link =>
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    })
+  );
+</script>

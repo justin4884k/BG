@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const sermons = [
+  { series:'REST Series',      title:'REST — Part 4: Our Position in Christ is Settled',  date:'Feb 9, 2020',  desc:'Pastor Zack digs deeper into the Word to show us our position in Christ is settled forever.',  thumb:'https://i.ytimg.com/vi/rCgIBgZd1YA/sddefault.jpg' },
+  { series:'REST Series',      title:'REST — Part 3: Settled Forever',                     date:'Feb 2, 2020',  desc:'A must-listen from the REST Series with Pastor Zack.',                                        thumb:'https://i.ytimg.com/vi/hJR3DQhEeD4/hqdefault.jpg' },
+  { series:'REST Series',      title:'REST — Part 2',                                       date:'Jan 26, 2020', desc:'Continuing the transformative REST Series.',                                                   thumb:'https://i.ytimg.com/vi/0lCKwAdWfos/sddefault.jpg' },
+  { series:'REST Series',      title:'Wisdom for 2020',                                     date:'Jan 12, 2020', desc:'A powerful teaching to motivate you to be the best YOU!',                                    thumb:'https://i.ytimg.com/vi/_lk7Mc5OAV4/sddefault.jpg' },
+  { series:'David Series',     title:'The David Series — Part 1',                           date:'Aug 9, 2020',  desc:'A new series exploring the life of David and what it means for us today.',                   thumb:'https://i.ytimg.com/vi/ye3ww-Y01ew/sddefault.jpg' },
+  { series:'Kingdom Series',   title:'Prophet, Priest & King — Part 3',                    date:'Aug 2, 2020',  desc:'Understanding our priestly and kingly calling in Christ.',                                    thumb:'https://i.ytimg.com/vi/zY9qlEQIVrA/sddefault.jpg' },
+  { series:'Gospel of Grace',  title:'Gospel of Grace — Part 3',                           date:'2021',         desc:'The third message in the foundational Gospel of Grace series.',                               thumb:'https://i.ytimg.com/vi/zY9qlEQIVrA/sddefault.jpg' },
+  { series:'Gospel of Grace',  title:'Gospel of Grace — Part 2',                           date:'2021',         desc:"Continuing to unpack the radical good news of God's grace.",                                  thumb:'https://i.ytimg.com/vi/0lCKwAdWfos/sddefault.jpg' },
+  { series:'Gospel of Grace',  title:'Gospel of Grace',                                     date:'2021',         desc:'An introduction to the transforming power of the Gospel of Grace.',                           thumb:'https://i.ytimg.com/vi/hJR3DQhEeD4/hqdefault.jpg' },
+];
+
+const podcasts = [
+  { title:'Gospel of Grace (Part 3)',  date:'2021' },
+  { title:'Gospel of Grace',           date:'2021' },
+  { title:'Gospel of Grace (Part 2)',  date:'2021' },
+  { title:'Resurrection Service 2021', date:'2021' },
+  { title:'REST — Walk in Wholeness',  date:'2020' },
+];
+---
+
+<Layout title="Sermons & Media" description="Watch and listen to sermons from Pastor Zack Cherian and Rest Church. REST Series, Gospel of Grace, David Series, and more.">
+
+  <PageHero
+    eyebrow="Watch & Listen"
+    title="Sermons & Media"
+    subtitle="Practical, grace-filled teaching from Pastor Zack Cherian. Watch online or listen on the go."
+    breadcrumb={[{ label: 'Sermons', href: '' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Featured / Latest -->
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <span class="section-label">Latest Message</span>
+          <h2 class="section-heading">Recent Sermons</h2>
+        </div>
+        <a href="https://youtube.com/@ZCIMTV" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm">YouTube Channel ↗</a>
+      </div>
+
+      <div class="sermon-grid">
+        {sermons.map((s, i) => (
+          <article class:list={['sermon-card', 'card', { featured: i === 0 }]}>
+            <div class="sermon-thumb">
+              <img src={s.thumb} alt={s.title} loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+              {i === 0 && <div class="featured-badge">Latest</div>}
+              <div class="sermon-play" aria-label={`Play ${s.title}`}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="sermon-body">
+              <div class="sermon-series">{s.series}</div>
+              <h3 class="sermon-title">{s.title}</h3>
+              <p class="sermon-desc">{s.desc}</p>
+              <div class="sermon-meta">Pastor Zack Cherian · {s.date}</div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Podcasts -->
+      <div class="section-header" style="margin-top:4rem;">
+        <span class="section-label">Audio</span>
+        <h2 class="section-heading">Podcast Messages</h2>
+      </div>
+      <div class="podcast-list">
+        {podcasts.map((p, i) => (
+          <div class="podcast-item">
+            <div class="podcast-num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="podcast-play" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div class="podcast-info">
+              <div class="podcast-title">{p.title}</div>
+              <div class="podcast-meta">Pastor Zack Cherian · {p.date}</div>
+            </div>
+            <div class="podcast-duration">Audio</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- YouTube CTA -->
+      <div class="yt-cta">
+        <div class="yt-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/></svg>
+        </div>
+        <div>
+          <h3>Watch on YouTube</h3>
+          <p>Subscribe to our YouTube channel for live services, sermon archives, and more content from Pastor Zack Cherian.</p>
+        </div>
+        <a href="https://youtube.com/@ZCIMTV" target="_blank" rel="noopener" class="btn btn-primary">Subscribe ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .sermon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+
+  .sermon-card { display: flex; flex-direction: column; }
+  .sermon-card.featured { grid-column: span 2; flex-direction: row; }
+  .sermon-card.featured .sermon-thumb { flex: 0 0 320px; aspect-ratio: auto; min-height: 220px; }
+  .sermon-card.featured .sermon-body  { padding: 2rem; }
+
+  .sermon-thumb {
+    aspect-ratio: 16/9;
+    background: #0d1a30;
+    position: relative; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; overflow: hidden;
+  }
+  .featured-badge {
+    position: absolute; top: .75rem; left: .75rem;
+    background: var(--gold); color: #fff;
+    font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; padding: .3rem .65rem; border-radius: 50px;
+  }
+  .sermon-play {
+    width: 50px; height: 50px; background: rgba(201,151,58,.88);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: #fff; cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .sermon-card:hover .sermon-play { background: var(--gold); transform: scale(1.08); }
+  .sermon-body   { padding: 1.25rem; flex: 1; }
+  .sermon-series { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+  .sermon-title  { font-size: 1rem; font-weight: 600; color: var(--navy); line-height: 1.35; margin-bottom: .4rem; }
+  .sermon-desc   { font-size: .83rem; color: var(--muted); line-height: 1.65; margin-bottom: .65rem; }
+  .sermon-meta   { font-size: .75rem; color: var(--muted); }
+
+  /* Podcasts */
+  .podcast-list { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .podcast-item {
+    display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem;
+    background: var(--white); transition: background var(--transition); cursor: pointer;
+  }
+  .podcast-item:not(:last-child) { border-bottom: 1px solid var(--border); }
+  .podcast-item:hover { background: var(--cream); }
+  .podcast-num  { font-size: .7rem; font-weight: 700; color: var(--muted); width: 24px; flex-shrink: 0; text-align: right; }
+  .podcast-play {
+    width: 34px; height: 34px; background: var(--navy); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; flex-shrink: 0;
+    transition: background var(--transition);
+  }
+  .podcast-item:hover .podcast-play { background: var(--gold); }
+  .podcast-info { flex: 1; }
+  .podcast-title { font-size: .9rem; font-weight: 600; color: var(--navy); }
+  .podcast-meta  { font-size: .75rem; color: var(--muted); margin-top: .15rem; }
+  .podcast-duration { font-size: .75rem; color: var(--muted); flex-shrink: 0; }
+
+  /* YouTube CTA */
+  .yt-cta {
+    margin-top: 3.5rem; padding: 2rem 2.5rem;
+    background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .yt-icon {
+    width: 64px; height: 64px; background: #ff0000;
+    border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    color: #fff; flex-shrink: 0;
+  }
+  .yt-cta > div { flex: 1; }
+  .yt-cta h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: .35rem; }
+  .yt-cta p  { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+
+  @media (max-width: 860px) {
+    .sermon-card.featured { grid-column: span 1; flex-direction: column; }
+    .sermon-card.featured .sermon-thumb { flex: none; }
+  }
+  @media (max-width: 640px) {
+    .yt-cta { flex-direction: column; text-align: center; align-items: center; }
+  }
+</style>

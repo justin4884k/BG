@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+<Layout title="RC Youth" description="RC Youth meets every Wednesday at 7 PM for high school and middle school students at Rest Church in San Antonio.">
+  <PageHero eyebrow="Youth Ministry" title="RC Youth" subtitle="High school and middle school students discovering their identity in Christ and the destiny God has planned for them." breadcrumb={[{ label:'Ministries', href:'/ministries' }, { label:'RC Youth', href:'' }]} bgImage="https://brazengrace.org/wp-content/uploads/2021/01/Game-Changers-Ministry-Page-Image-1.jpg" />
+
+  <section class="section">
+    <div class="container">
+      <div class="ministry-layout">
+        <div class="ministry-main">
+          <h2>About RC Youth</h2>
+          <p>RC Youth is the student ministry of Rest Church, created specifically for high school and middle school students. Every Wednesday night, students come together in a welcoming environment to worship, pray, study the Bible, and build genuine Christ-centered friendships.</p>
+          <p>Our focus is on God's grace and our identity in Jesus Christ. We believe every student carries an incredible destiny, and our role is to help them grow into the greatness God has prepared for them — not through striving, but through resting in who they already are in Christ.</p>
+
+          <h3>What We Do</h3>
+          <div class="what-grid">
+            {[
+              { title:'Worship',     desc:'High-energy, authentic worship that connects students to the heart of God.' },
+              { title:'Prayer',      desc:'Corporate and personal prayer that builds a lifestyle of communication with God.' },
+              { title:'Bible Study', desc:'Relevant, practical teaching from Scripture on identity, purpose, and grace.' },
+              { title:'Community',   desc:'Real friendships built around Christ — fun, genuine, and life-giving connection.' },
+            ].map(w => (
+              <div class="what-card">
+                <h4>{w.title}</h4>
+                <p>{w.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <h3>Our Heart</h3>
+          <p>We believe the message of grace and identity in Jesus Christ is especially powerful for this generation. Young people are often told to perform, achieve, and prove themselves. We tell a different story: <em>you are already loved, already accepted, already enough in Christ.</em> From that foundation, students are launched into their God-given destiny.</p>
+
+          <h3>Gallery</h3>
+          <div class="ministry-gallery">
+            {[
+              { src:'https://brazengrace.org/wp-content/uploads/2021/01/Game-Changers-Ministry-Page-Image-1.jpg', alt:'RC Youth gathering' },
+              { src:'https://brazengrace.org/wp-content/uploads/2021/01/Game-Changers-Ministry-Page-Image-2.jpg', alt:'RC Youth worship' },
+              { src:'https://brazengrace.org/wp-content/uploads/2021/01/Game-Changers-Ministry-Page-Image-3.jpg', alt:'RC Youth students' },
+              { src:'https://brazengrace.org/wp-content/uploads/2021/01/Game-Changers-Ministry-Page-Image-4.jpg', alt:'RC Youth community' },
+              { src:'https://brazengrace.org/wp-content/uploads/2021/01/Game-Changers-Ministry-Page-Image-5.jpg', alt:'RC Youth prayer' },
+              { src:'https://brazengrace.org/wp-content/uploads/2021/01/Game-Changers-Ministry-Page-Image-6.jpg', alt:'RC Youth Bible study' },
+            ].map(p => (
+              <div class="gallery-item">
+                <img src={p.src} alt={p.alt} loading="lazy" />
+              </div>
+            ))}
+          </div>
+
+          <h3>Parents</h3>
+          <p>We partner with parents to raise up the next generation in faith. If you have questions about RC Youth or want to get your student involved, please don't hesitate to reach out.</p>
+          <a href="/contact" class="btn btn-primary">Contact Us</a>
+        </div>
+
+        <aside class="ministry-sidebar">
+          <div class="sidebar-card">
+            <h4>Service Info</h4>
+            <div class="info-row"><span class="info-label">When</span><span>Wednesdays · 7:00 PM</span></div>
+            <div class="info-row"><span class="info-label">Who</span><span>Middle & High School</span></div>
+            <div class="info-row"><span class="info-label">Where</span><span>19314 US-281 N, Suite 101</span></div>
+            <a href="/contact" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.25rem;">Join Us Wednesday</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Other Ministries</h4>
+            <ul class="sidebar-links">
+              <li><a href="/ministries/rc-kidz">RC Kidz →</a></li>
+              <li><a href="/ministries/epic-life-groups">EPIC Life Groups →</a></li>
+              <li><a href="/ministries/rc-cares">RC Cares →</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .ministry-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; align-items: start; }
+  .ministry-main h2 { font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; }
+  .ministry-main h3 { font-size: 1.2rem; color: var(--navy); margin: 2rem 0 .85rem; }
+  .ministry-main p  { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+  .ministry-main em { font-style: italic; color: var(--navy); }
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 1.5rem; }
+  .what-card { padding: 1.25rem; background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); }
+  .what-card h4 { font-size: 1rem; color: var(--navy); margin-bottom: .4rem; }
+  .what-card p  { font-size: .84rem; color: var(--muted); line-height: 1.6; margin: 0; }
+  .sidebar-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+  .sidebar-card h4 { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
+  .info-row { display: flex; justify-content: space-between; gap: .5rem; font-size: .875rem; padding: .55rem 0; border-bottom: 1px solid var(--border); }
+  .info-row:last-of-type { border-bottom: none; }
+  .info-label { font-weight: 600; color: var(--navy); }
+  .sidebar-links { display: flex; flex-direction: column; gap: .5rem; }
+  .sidebar-links a { font-size: .875rem; color: var(--navy); font-weight: 500; transition: color var(--transition); }
+  .sidebar-links a:hover { color: var(--gold); }
+  .ministry-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1rem 0 1.75rem; }
+  .gallery-item { aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; background: var(--surface); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  @media (max-width: 860px) { .ministry-layout { grid-template-columns: 1fr; } .what-grid { grid-template-columns: 1fr; } }
+</style>

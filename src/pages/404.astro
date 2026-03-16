@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Page Not Found">
+  <div class="not-found">
+    <div class="nf-content">
+      <div class="nf-num">404</div>
+      <h1>Page Not Found</h1>
+      <p>Sorry, we couldn't find the page you're looking for. Let's get you back on track.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/"        class="btn btn-primary">Go Home</a>
+        <a href="/contact" class="btn btn-outline-navy">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .not-found {
+    min-height: calc(100svh - var(--header-h));
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 4rem 1.5rem;
+    background: var(--cream);
+  }
+  .nf-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem; font-weight: 700;
+    color: var(--border); line-height: 1;
+    margin-bottom: .5rem;
+  }
+  .nf-content h1 { font-size: 2rem; color: var(--navy); margin-bottom: .75rem; }
+  .nf-content p  { font-size: 1rem; color: var(--muted); max-width: 400px; line-height: 1.7; margin: 0 auto 2rem; }
+</style>

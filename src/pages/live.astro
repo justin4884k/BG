@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout
+  title="Watch Live"
+  description="Watch Rest Church live every Sunday at 10 AM CST on YouTube. Stream with us from anywhere."
+>
+
+  <PageHero
+    eyebrow="Join Us Online"
+    title="Watch Us Live"
+    subtitle="Every Sunday at 10:00 AM CST — join our Sunday worship service live from wherever you are."
+    breadcrumb={[{ label: 'Watch Live', href: '' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Embed -->
+      <div class="embed-wrap">
+        <div class="embed-placeholder">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1" aria-hidden="true">
+            <path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/>
+          </svg>
+          <h2>Live Stream</h2>
+          <p>Replace this embed with your YouTube live embed code.</p>
+          <a
+            href="https://youtube.com/@ZCIMTV"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+            style="margin-top:.75rem;"
+          >
+            Watch on YouTube ↗
+          </a>
+
+          <!--
+            TO EMBED YOUR LIVE STREAM:
+            Replace this placeholder div with:
+
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID&autoplay=1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          -->
+        </div>
+      </div>
+
+      <!-- Info bar -->
+      <div class="live-info-bar">
+        <div class="live-info-item">
+          <div class="icon-box icon-box-sm" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="live-label">Stream Time</div>
+            <div class="live-val">Sundays · 10:00 AM CST</div>
+          </div>
+        </div>
+        <div class="live-divider" aria-hidden="true"></div>
+        <div class="live-info-item">
+          <div class="icon-box icon-box-sm" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/></svg>
+          </div>
+          <div>
+            <div class="live-label">Platform</div>
+            <div class="live-val">YouTube — @ZCIMTV</div>
+          </div>
+        </div>
+        <div class="live-divider" aria-hidden="true"></div>
+        <div class="live-info-item">
+          <div class="icon-box icon-box-sm" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="live-label">In Person</div>
+            <div class="live-val">19314 US-281 N, Suite 101, SA TX</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Join in person -->
+      <div class="join-grid">
+        <div class="join-card">
+          <h3>Join Us in Person</h3>
+          <p>Nothing replaces gathering together. If you're in the San Antonio area, we'd love to have you join us in person this Sunday.</p>
+          <a href="/contact" class="btn btn-outline-navy">Plan Your Visit</a>
+        </div>
+        <div class="join-card">
+          <h3>Past Sermons</h3>
+          <p>Missed a service? Browse our full sermon archive and catch up on any message from Pastor Zack Cherian.</p>
+          <a href="/media" class="btn btn-outline-navy">Watch Sermons</a>
+        </div>
+        <div class="join-card">
+          <h3>Get Connected</h3>
+          <p>Whether you're watching online or attending in person, we'd love to connect with you and help you take your next step.</p>
+          <a href="/contact" class="btn btn-outline-navy">Connect With Us</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .embed-wrap {
+    border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: var(--shadow-lg); margin-bottom: 2rem;
+    background: var(--navy-dark);
+  }
+  .embed-placeholder {
+    aspect-ratio: 16/9;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: .65rem; padding: 2rem;
+    background: linear-gradient(135deg, #080f1c, #1B2B4B);
+  }
+  .embed-placeholder h2 { color: rgba(255,255,255,.3); font-size: 1.5rem; }
+  .embed-placeholder p  { color: rgba(255,255,255,.25); font-size: .88rem; }
+
+  .live-info-bar {
+    display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: var(--gold); border-radius: var(--radius);
+    margin-bottom: 3rem; color: #fff;
+    justify-content: center;
+  }
+  .live-info-item { display: flex; align-items: center; gap: .85rem; }
+  .live-info-item .icon-box { background: rgba(255,255,255,.2); color: #fff; }
+  .live-label { font-size: .68rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; opacity: .8; }
+  .live-val   { font-size: .92rem; font-weight: 700; }
+  .live-divider { width: 1px; height: 32px; background: rgba(255,255,255,.3); }
+
+  .join-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .join-card {
+    padding: 1.75rem; background: var(--cream);
+    border: 1px solid var(--border); border-radius: var(--radius);
+  }
+  .join-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: .6rem; }
+  .join-card p  { font-size: .875rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
+
+  @media (max-width: 760px) {
+    .join-grid { grid-template-columns: 1fr; }
+    .live-divider { display: none; }
+  }
+</style>

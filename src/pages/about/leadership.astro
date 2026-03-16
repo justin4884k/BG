@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+
+<Layout
+  title="Our Leadership"
+  description="Meet Pastor Zack Cherian and the leadership team of Rest Church in San Antonio, Texas."
+>
+
+  <PageHero
+    eyebrow="Leadership"
+    title="Meet Our Team"
+    subtitle="Servant leaders who love God, love people, and are committed to seeing San Antonio transformed by grace."
+    breadcrumb={[{ label: 'About Us', href: '/about' }, { label: 'Leadership', href: '' }]}
+    bgImage="https://brazengrace.org/wp-content/uploads/2020/11/About-Us-Page-_Our-Mission.jpg"
+  />
+
+  <!-- Pastor Feature -->
+  <section class="section">
+    <div class="container">
+      <div class="pastor-feature">
+        <div class="pastor-photo">
+          <img
+            src="https://brazengrace.org/wp-content/uploads/2020/11/About-Us-Page-_Our-Mission.jpg"
+            alt="Pastor Zack Cherian"
+            loading="lazy"
+          />
+        </div>
+        <div class="pastor-bio">
+          <span class="section-label">Senior Pastor</span>
+          <h2 class="section-heading">Pastor Zack Cherian</h2>
+          <p>Pastor Zack Cherian serves as the Senior Pastor of Rest Church (Brazen Grace Fellowship) in San Antonio, Texas. With a heart for people and a passion for the Gospel of Grace, he leads a community that believes God values every individual and has an incredible plan for their lives.</p>
+          <p>His ministry is grounded in the conviction that "REST" — trusting in the finished work of Christ — is not passive, but a dynamic and transformative experience that empowers believers to discover their purpose and step into their God-given calling.</p>
+          <p>Pastor Zack also leads ZCIM (Zack Cherian International Ministries), reaching people across cultures and nations through the message of grace, identity in Christ, and kingdom living.</p>
+          <div class="pastor-links">
+            <a href="https://www.zcim.org" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm">Visit ZCIM.org ↗</a>
+            <a href="https://youtube.com/@ZCIMTV"  target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm">Watch on YouTube ↗</a>
+            <a href="/contact" class="btn btn-primary btn-sm">Contact the Church</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Values -->
+  <section class="section" style="background:var(--cream)">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">How We Lead</span>
+        <h2 class="section-heading">Our Leadership Philosophy</h2>
+        <p class="section-sub">We lead from a place of rest — serving out of the overflow of God's grace, not striving or performance.</p>
+      </div>
+      <div class="lead-grid">
+        {[
+          { icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z', title:'Servant Heart', desc:"We lead by example — putting others first, washing feet, and serving the way Jesus demonstrated." },
+          { icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M9 7a4 4 0 100 0', title:'Raising Leaders', desc:"Our goal is not to create followers but to raise up men and women who carry the message of grace into every sphere of society." },
+          { icon: 'M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z M9 22V12h6v10', title:'Rooted in Word', desc:"Every decision is filtered through Scripture. We are committed to teaching the whole counsel of God with clarity and conviction." },
+          { icon: 'M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z', title:'Grace Culture', desc:"We build a culture where people are loved unconditionally, where failure is not fatal, and where restoration is always possible." },
+        ].map(item => (
+          <article class="lead-card">
+            <div class="icon-box" style="margin-bottom:1.1rem;" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d={item.icon}/></svg>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect -->
+  <section class="section-sm">
+    <div class="container" style="text-align:center; max-width:520px; margin:0 auto;">
+      <h2 class="section-heading">Get Connected</h2>
+      <p style="color:var(--muted); font-size:1rem; line-height:1.75; margin:.75rem 0 1.75rem;">Want to connect with our team, ask a question, or get involved? We'd love to hear from you.</p>
+      <a href="/contact" class="btn btn-primary">Contact Us</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .pastor-feature {
+    display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: start;
+  }
+  .pastor-photo {
+    aspect-ratio: 3/4; border-radius: 20px;
+    overflow: hidden; background: #1B2B4B;
+    box-shadow: var(--shadow-lg);
+  }
+  .pastor-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .pastor-bio p {
+    font-size: 1.02rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.1rem;
+  }
+  .pastor-links { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.75rem; }
+
+  .lead-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+  .lead-card {
+    padding: 1.75rem; background: var(--white);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .lead-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .lead-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: .5rem; }
+  .lead-card p  { font-size: .875rem; color: var(--muted); line-height: 1.7; }
+
+  @media (max-width: 860px) {
+    .pastor-feature { grid-template-columns: 1fr; gap: 2.5rem; }
+    .pastor-photo   { aspect-ratio: 1; max-width: 300px; margin: 0 auto; }
+  }
+</style>

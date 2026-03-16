@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const ministries = [
+  {
+    href: '/ministries/rc-kidz',
+    title: 'RC Kidz',
+    tag: 'Ages 0–12 · Sundays 10 AM',
+    color: '#4F7BE8',
+    desc: 'A fun and safe environment where children ages 0–12 discover faith through age-appropriate Bible stories, activities, worship, and prayer. Inspiring the next generation to change the world for Christ.',
+    icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z',
+  },
+  {
+    href: '/ministries/rc-youth',
+    title: 'RC Youth',
+    tag: 'Wednesdays 7 PM',
+    color: '#E85F4F',
+    desc: 'High school and middle school students gathering every Wednesday night for worship, prayer, Bible study, and Christ-centered friendship. Growing into the great destiny God has prepared for this generation.',
+    icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M9 7a4 4 0 100 0 M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75',
+  },
+  {
+    href: '/ministries/women-of-rest',
+    title: 'Women of Rest',
+    tag: 'Monthly · Saturdays',
+    color: '#C9973A',
+    desc: 'Empowering women to understand their identity in Christ and step fully into divine purpose. Monthly gatherings feature shared meals, worship, ministry time, one-on-one prayer, and genuine community.',
+    icon: 'M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z',
+  },
+  {
+    href: '/ministries/mens-breakfast',
+    title: "Men's Breakfast",
+    tag: 'Monthly · Saturdays 9 AM',
+    color: '#2D7D4F',
+    desc: 'Monthly gatherings for men centered around fellowship, prayer, shared meals, and uplifting biblical teaching. As iron sharpens iron, so one man sharpens another.',
+    icon: 'M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z',
+  },
+  {
+    href: '/ministries/epic-life-groups',
+    title: 'EPIC Life Groups',
+    tag: 'Weekly · City-wide',
+    color: '#7B5EA7',
+    desc: 'Equipping People In Christ — weekly life groups throughout San Antonio connecting believers for worship, prayer, and Bible study. Three purposes: Equip with the Word, Edify through love, Empower by the Holy Spirit.',
+    icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M9 7a4 4 0 100 0 M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75',
+  },
+  {
+    href: '/ministries/rc-cares',
+    title: 'RC Cares',
+    tag: 'Community Outreach',
+    color: '#D97706',
+    desc: 'Our outreach ministry dedicated to serving the San Antonio community with the practical love of Christ — meeting needs, building bridges, and sharing the hope of the Gospel beyond the walls of the church.',
+    icon: 'M9 11l3 3L22 4 M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11',
+  },
+];
+---
+
+<Layout
+  title="Ministries"
+  description="Explore all ministries at Rest Church — RC Kidz, RC Youth, Women of Rest, Men's Breakfast, EPIC Life Groups, and RC Cares."
+>
+
+  <PageHero
+    eyebrow="Get Involved"
+    title="Our Ministries"
+    subtitle="A place for every person. Find your community, grow in your calling, and make a difference in San Antonio."
+    breadcrumb={[{ label: 'Ministries', href: '' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="min-grid">
+        {ministries.map(m => (
+          <a href={m.href} class="min-card card">
+            <div class="min-card-accent" style={`background:${m.color}`}></div>
+            <div class="min-body">
+              <div class="min-icon" style={`background:${m.color}18; color:${m.color}`} aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <path d={m.icon}/>
+                </svg>
+              </div>
+              <h2 class="min-title">{m.title}</h2>
+              <p class="min-desc">{m.desc}</p>
+              <div class="min-footer">
+                <span class="tag">{m.tag}</span>
+                <span class="min-arrow" aria-hidden="true">Learn more →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer CTA -->
+  <section class="section-sm" style="background:var(--navy); text-align:center;">
+    <div class="container" style="max-width:580px;">
+      <span class="section-label" style="color:var(--gold-light)">Serve With Us</span>
+      <h2 style="color:#fff; font-family:'Playfair Display',serif; font-size:2rem; margin:.5rem 0 1rem;">Get Involved Today</h2>
+      <p style="color:rgba(255,255,255,.65); font-size:1rem; line-height:1.75; margin-bottom:1.75rem;">Every ministry welcomes new volunteers and participants. Reach out and take the next step in your journey.</p>
+      <a href="/contact" class="btn btn-primary">Connect With Us</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .min-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+
+  .min-card { display: block; text-decoration: none; }
+  .min-card-accent { height: 5px; }
+  .min-body { padding: 1.75rem; }
+
+  .min-icon {
+    width: 50px; height: 50px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.1rem;
+  }
+  .min-title { font-size: 1.2rem; color: var(--navy); margin-bottom: .6rem; }
+  .min-desc  { font-size: .9rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.25rem; }
+  .min-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+  .min-arrow  { font-size: .8rem; font-weight: 600; color: var(--gold); transition: color var(--transition); }
+  .min-card:hover .min-arrow { color: var(--gold-light); }
+</style>

@@ -1,0 +1,170 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img
+          src="https://brazengrace.org/wp-content/uploads/2024/11/rs1.png"
+          alt="Rest Church"
+          class="footer-logo-img"
+          width="130"
+          height="44"
+          loading="lazy"
+        />
+        <p class="footer-desc" style="margin-top:1rem;">A thriving Christian community worshiping God together. All are welcome — come as you are.</p>
+        <div class="social-links" style="margin-top:1.25rem;">
+          <a href="https://facebook.com/restchurchsa" target="_blank" rel="noopener" class="social-link social-link-dark" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/rest.churchsa" target="_blank" rel="noopener" class="social-link social-link-dark" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://youtube.com/@ZCIMTV" target="_blank" rel="noopener" class="social-link social-link-dark" aria-label="YouTube">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/></svg>
+          </a>
+          <a href="https://twitter.com/brazengracesa" target="_blank" rel="noopener" class="social-link social-link-dark" aria-label="Twitter / X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col: Church -->
+      <div class="footer-col">
+        <h4>Church</h4>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/about/beliefs">Our Beliefs</a></li>
+          <li><a href="/about/leadership">Leadership</a></li>
+          <li><a href="/know-jesus">Know Jesus</a></li>
+        </ul>
+      </div>
+
+      <!-- Col: Ministries -->
+      <div class="footer-col">
+        <h4>Ministries</h4>
+        <ul>
+          <li><a href="/ministries/rc-kidz">RC Kidz</a></li>
+          <li><a href="/ministries/rc-youth">RC Youth</a></li>
+          <li><a href="/ministries/women-of-rest">Women of Rest</a></li>
+          <li><a href="/ministries/mens-breakfast">Men's Breakfast</a></li>
+          <li><a href="/ministries/epic-life-groups">EPIC Life Groups</a></li>
+          <li><a href="/ministries/rc-cares">RC Cares</a></li>
+        </ul>
+      </div>
+
+      <!-- Col: Connect -->
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/media">Sermons</a></li>
+          <li><a href="/live">Watch Live</a></li>
+          <li><a href="/give">Give</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div class="footer-contact" style="margin-top:1.25rem;">
+          <p>19314 US-281 N, Suite 101<br>San Antonio, TX 78256</p>
+          <p style="margin-top:.5rem;">+1 (210) 650-2087</p>
+          <p style="margin-top:.3rem; font-size:.8rem; opacity:.7;">Sundays 10:00 AM</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {year} Brazen Grace Fellowship. All rights reserved.</p>
+      <p class="footer-credit">Designed with ♥ for the San Antonio community</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,.65);
+    padding: 4.5rem 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: .9;
+  }
+  .footer-desc {
+    font-size: .875rem;
+    line-height: 1.7;
+    max-width: 270px;
+  }
+
+  .footer-col h4 {
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.35);
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .footer-col ul a {
+    font-size: .875rem;
+    color: rgba(255,255,255,.6);
+    transition: color var(--transition);
+  }
+  .footer-col ul a:hover { color: var(--gold-light); }
+
+  .footer-contact {
+    font-size: .845rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,.5);
+  }
+
+  .social-link-dark {
+    background: rgba(255,255,255,.07);
+    border-color: rgba(255,255,255,.1);
+    color: rgba(255,255,255,.6);
+  }
+  .social-link-dark:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #fff;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .75rem;
+    font-size: .8rem;
+    color: rgba(255,255,255,.35);
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>

@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rest Church — San Antonio, TX</title>
+  <meta name="description" content="Rest Church is a thriving Christian community worshiping God together in San Antonio, Texas. Join us Sundays at 10 AM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Tokens ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:        #1B2B4B;
+      --navy-light:  #243758;
+      --gold:        #C9973A;
+      --gold-light:  #E5B55A;
+      --cream:       #FAFAF7;
+      --white:       #FFFFFF;
+      --text:        #1A1A2E;
+      --muted:       #6B7280;
+      --border:      #E5E7EB;
+      --surface:     #F3F4F6;
+      --radius:      12px;
+      --radius-sm:   8px;
+      --shadow:      0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+      --shadow-md:   0 4px 24px rgba(0,0,0,.12);
+      --transition:  0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ─── Utilities ───────────────────────────────────────────── */
+    .container  { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    .section    { padding: 5rem 0; }
+    .section-sm { padding: 3.5rem 0; }
+
+    .label {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .75rem;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      line-height: 1.2;
+    }
+
+    .section-heading {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .section-header { margin-bottom: 3rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.75rem;
+      border-radius: 50px;
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+      transition: all var(--transition);
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(201,151,58,.4); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,.6);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: var(--white); }
+
+    .btn-outline-navy {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+    .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+
+    /* ─── Header / Nav ────────────────────────────────────────── */
+    #site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    #site-header.scrolled {
+      border-color: var(--border);
+      box-shadow: 0 1px 12px rgba(0,0,0,.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .nav-logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .nav-logo-sub {
+      font-size: .6rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+    }
+
+    .nav-links a,
+    .nav-dropdown > button {
+      padding: .45rem .75rem;
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--text);
+      border-radius: var(--radius-sm);
+      background: none;
+      border: none;
+      transition: color var(--transition), background var(--transition);
+      white-space: nowrap;
+    }
+    .nav-links a:hover,
+    .nav-dropdown > button:hover { color: var(--navy); background: var(--surface); }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > button {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+    }
+    .nav-dropdown > button svg { transition: transform var(--transition); }
+    .nav-dropdown:hover > button svg { transform: rotate(180deg); }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + .5rem);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+      overflow: hidden;
+    }
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: .6rem 1.1rem;
+      font-size: .85rem;
+      color: var(--text);
+      transition: background var(--transition), color var(--transition);
+    }
+    .dropdown-menu a:hover { background: var(--cream); color: var(--navy); }
+
+    .nav-cta { margin-left: .5rem; }
+
+    /* hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: .4rem;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: transform .25s, opacity .25s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* mobile nav */
+    #mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--white);
+      padding: 5rem 2rem 2rem;
+      overflow-y: auto;
+      flex-direction: column;
+      gap: .25rem;
+    }
+    #mobile-nav.open { display: flex; }
+    #mobile-nav a, #mobile-nav summary {
+      display: block;
+      padding: .85rem 1rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      transition: background var(--transition);
+      list-style: none;
+    }
+    #mobile-nav a:hover, #mobile-nav summary:hover { background: var(--surface); }
+    #mobile-nav details > div { padding-left: 1.25rem; }
+    #mobile-nav details > div a { font-size: .95rem; color: var(--muted); }
+
+    /* ─── Hero ────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,151,58,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 100%, rgba(27,43,75,.6) 0%, transparent 70%),
+        linear-gradient(160deg, #0d1a30 0%, #1B2B4B 50%, #243758 100%);
+    }
+
+    /* decorative cross */
+    .hero-cross {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(480px, 80vw);
+      height: min(480px, 80vw);
+      opacity: .04;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 8rem 1.5rem 4rem;
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: rgba(255,255,255,.7);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: rgba(255,255,255,.4);
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll svg { opacity: .5; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ─── Service Times Bar ───────────────────────────────────── */
+    #times-bar {
+      background: var(--gold);
+      color: var(--white);
+      padding: 1rem 0;
+    }
+
+    .times-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .time-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .time-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .time-label { font-size: .7rem; opacity: .8; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; }
+    .time-value { font-size: .95rem; font-weight: 600; }
+
+    .times-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,.3);
+    }
+
+    /* ─── Welcome / About ─────────────────────────────────────── */
+    #welcome {
+      background: var(--cream);
+    }
+
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .welcome-img-wrap {
+      position: relative;
+    }
+
+    .welcome-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #1B2B4B, #3a5280);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .welcome-img-placeholder {
+      text-align: center;
+      color: rgba(255,255,255,.3);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+    }
+
+    .welcome-badge {
+      position: absolute;
+      bottom: -1.25rem;
+      right: -1.25rem;
+      background: var(--gold);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .welcome-badge strong { display: block; font-size: 1.5rem; font-weight: 700; }
+    .welcome-badge span   { font-size: .75rem; opacity: .85; }
+
+    .welcome-text p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .pastor-sig {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .pastor-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1B2B4B, #C9973A);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+    }
+
+    .pastor-sig-name { font-weight: 600; font-size: .9rem; }
+    .pastor-sig-title { font-size: .8rem; color: var(--gold); }
+
+    /* ─── Vision / Mission ────────────────────────────────────── */
+    #mission { background: var(--navy); color: var(--white); }
+
+    .mission-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mission-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: background var(--transition);
+    }
+    .mission-card:hover { background: rgba(255,255,255,.08); }
+
+    .mission-card-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(201,151,58,.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--gold);
+    }
+
+    .mission-card h3 {
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: .75rem;
+    }
+
+    .mission-card p {
+      font-size: .9rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+    }
+
+    /* ─── Core Values ─────────────────────────────────────────── */
+    #values { background: var(--white); }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .value-card {
+      padding: 1.5rem;
+      background: var(--cream);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .value-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
+    .value-num {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--gold);
+      margin-bottom: .5rem;
+    }
+
+    .value-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      font-family: 'Playfair Display', serif;
+      margin-bottom: .4rem;
+    }
+
+    .value-desc {
+      font-size: .8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── Ministries ──────────────────────────────────────────── */
+    #ministries { background: var(--cream); }
+
+    .min-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .min-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .min-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+    .min-card-top {
+      height: 8px;
+      background: var(--gold);
+    }
+
+    .min-card-body { padding: 1.5rem; }
+
+    .min-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(201,151,58,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .min-card h3 {
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: .5rem;
+    }
+
+    .min-card p {
+      font-size: .875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .min-tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: .25rem .65rem;
+      background: rgba(27,43,75,.08);
+      color: var(--navy);
+      border-radius: 50px;
+      letter-spacing: .04em;
+    }
+
+    /* ─── Events ──────────────────────────────────────────────── */
+    #events { background: var(--white); }
+
+    .events-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 700px;
+    }
+
+    .event-item {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      background: var(--cream);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: box-shadow var(--transition);
+    }
+    .event-item:hover { box-shadow: var(--shadow); }
+
+    .event-date {
+      text-align: center;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius-sm);
+      padding: .5rem;
+      flex-shrink: 0;
+    }
+    .event-date-month { font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; opacity: .7; }
+    .event-date-day   { font-size: 1.5rem; font-weight: 700; font-family: 'Playfair Display', serif; line-height: 1; }
+
+    .event-name { font-weight: 600; font-size: .95rem; color: var(--navy); }
+    .event-meta { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+    .event-time { font-size: .8rem; font-weight: 600; color: var(--gold); white-space: nowrap; }
+
+    /* ─── Media / Sermons ─────────────────────────────────────── */
+    #media { background: var(--cream); }
+
+    .sermon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .sermon-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .sermon-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+    .sermon-thumb {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #0d1a30, #1B2B4B);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sermon-play {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background: rgba(201,151,58,.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .sermon-card:hover .sermon-play { background: var(--gold); transform: scale(1.08); }
+
+    .sermon-body { padding: 1.1rem; }
+    .sermon-series { font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; }
+    .sermon-title  { font-size: .95rem; font-weight: 600; color: var(--navy); margin-bottom: .3rem; line-height: 1.35; }
+    .sermon-meta   { font-size: .75rem; color: var(--muted); }
+
+    /* ─── Know Jesus CTA ──────────────────────────────────────── */
+    #know-jesus {
+      background: linear-gradient(135deg, #0d1a30 0%, var(--navy) 100%);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kj-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,151,58,.12) 0%, transparent 70%);
+    }
+
+    .kj-content { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+    .kj-content .section-heading { color: var(--white); }
+    .kj-content p { color: rgba(255,255,255,.7); font-size: 1.05rem; line-height: 1.8; margin: 1.25rem 0 2rem; }
+
+    /* ─── Give ────────────────────────────────────────────────── */
+    #give {
+      background: var(--cream);
+    }
+
+    .give-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .give-text p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .give-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .give-icon-wrap {
+      width: 64px;
+      height: 64px;
+      background: rgba(201,151,58,.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      color: var(--gold);
+    }
+
+    .give-card h3 {
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: .75rem;
+    }
+
+    .give-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+
+    /* ─── Contact ─────────────────────────────────────────────── */
+    #contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(27,43,75,.06);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .contact-info-label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: .25rem; }
+    .contact-info-val   { font-size: .95rem; color: var(--text); line-height: 1.5; }
+
+    .social-links { display: flex; gap: .5rem; margin-top: .5rem; }
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+    .social-link:hover { background: var(--navy); border-color: var(--navy); color: var(--white); }
+
+    /* form */
+    .contact-form { display: flex; flex-direction: column; gap: .85rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
+
+    .form-field { display: flex; flex-direction: column; gap: .35rem; }
+
+    .form-field label { font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      padding: .65rem .9rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: .875rem;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color var(--transition);
+      width: 100%;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus { border-color: var(--navy); }
+
+    .form-field textarea { min-height: 110px; resize: vertical; }
+
+    .form-status { font-size: .82rem; text-align: center; min-height: 1.2em; color: var(--muted); }
+    .form-status.success { color: #16a34a; }
+    .form-status.error   { color: #dc2626; }
+
+    /* ─── Footer ──────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.7);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .25rem;
+    }
+
+    .footer-brand-sub { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+
+    .footer-brand-desc { font-size: .85rem; line-height: 1.7; max-width: 260px; }
+
+    .footer-col h4 {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul { display: flex; flex-direction: column; gap: .5rem; }
+
+    .footer-col ul li a {
+      font-size: .875rem;
+      color: rgba(255,255,255,.6);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .footer-bottom p { font-size: .8rem; }
+
+    .footer-bottom .social-links .social-link {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.1);
+      color: rgba(255,255,255,.6);
+    }
+    .footer-bottom .social-links .social-link:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+    /* ─── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .welcome-grid,
+      .give-inner,
+      .contact-grid  { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-grid   { grid-template-columns: 1fr 1fr; }
+      .welcome-badge { bottom: -.75rem; right: -.75rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 3.5rem 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .event-item { grid-template-columns: 56px 1fr; }
+      .event-time { display: none; }
+      .times-divider { display: none; }
+      .times-grid { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ──────────────────────────────────────────────────── -->
+<header id="site-header">
+  <div class="container">
+    <nav class="nav-inner" aria-label="Main navigation">
+
+      <a href="#hero" class="nav-logo" aria-label="Rest Church Home">
+        <span class="nav-logo-main">Rest. Church</span>
+        <span class="nav-logo-sub">San Antonio, TX</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#welcome">About</a></li>
+        <li class="nav-dropdown">
+          <button aria-haspopup="true" aria-expanded="false">
+            Ministries
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#ministries" role="menuitem">All Ministries</a></li>
+            <li><a href="#ministries" role="menuitem">RC Kidz</a></li>
+            <li><a href="#ministries" role="menuitem">RC Youth</a></li>
+            <li><a href="#ministries" role="menuitem">Women of Rest</a></li>
+            <li><a href="#ministries" role="menuitem">Men's Breakfast</a></li>
+            <li><a href="#ministries" role="menuitem">EPIC Life Groups</a></li>
+          </ul>
+        </li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#media">Sermons</a></li>
+        <li><a href="#know-jesus">Know Jesus</a></li>
+        <li><a href="#give">Give</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="https://www.youtube.com/@ZCIMTV" target="_blank" rel="noopener" class="btn btn-primary" style="padding:.55rem 1.25rem; font-size:.8rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/></svg>
+          Watch Live
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav id="mobile-nav" aria-label="Mobile navigation">
+  <a href="#welcome">About</a>
+  <details>
+    <summary>Ministries</summary>
+    <div>
+      <a href="#ministries">RC Kidz</a>
+      <a href="#ministries">RC Youth</a>
+      <a href="#ministries">Women of Rest</a>
+      <a href="#ministries">Men's Breakfast</a>
+      <a href="#ministries">EPIC Life Groups</a>
+    </div>
+  </details>
+  <a href="#events">Events</a>
+  <a href="#media">Sermons</a>
+  <a href="#know-jesus">Know Jesus</a>
+  <a href="#give">Give</a>
+  <a href="#contact">Contact</a>
+  <a href="https://www.youtube.com/@ZCIMTV" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:.75rem; justify-content:center;">Watch Live</a>
+</nav>
+
+<!-- ─── HERO ────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <!-- decorative cross SVG -->
+  <svg class="hero-cross" aria-hidden="true" viewBox="0 0 100 100" fill="none">
+    <rect x="42" y="5" width="16" height="90" fill="white"/>
+    <rect x="5" y="35" width="90" height="16" fill="white"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Rest Church — San Antonio, Texas</p>
+    <h1 class="hero-title">Doing Life <em>Together</em></h1>
+    <p class="hero-sub">Rest Church is a thriving community worshiping God together in San Antonio, Texas. All are welcome — come as you are.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Connect With Us</a>
+      <a href="https://www.youtube.com/@ZCIMTV" target="_blank" rel="noopener" class="btn btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/></svg>
+        Watch Us Live
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ─── SERVICE TIMES BAR ────────────────────────────────────────── -->
+<div id="times-bar" role="complementary" aria-label="Service times">
+  <div class="container">
+    <div class="times-grid">
+      <div class="time-item">
+        <div class="time-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="time-label">Sunday Service</div>
+          <div class="time-value">10:00 AM</div>
+        </div>
+      </div>
+      <div class="times-divider" aria-hidden="true"></div>
+      <div class="time-item">
+        <div class="time-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <div class="time-label">Grace Café</div>
+          <div class="time-value">9:30 AM</div>
+        </div>
+      </div>
+      <div class="times-divider" aria-hidden="true"></div>
+      <div class="time-item">
+        <div class="time-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <div class="time-label">RC Youth — Wed</div>
+          <div class="time-value">7:00 PM</div>
+        </div>
+      </div>
+      <div class="times-divider" aria-hidden="true"></div>
+      <div class="time-item">
+        <div class="time-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="time-label">Location</div>
+          <div class="time-value">281 N, Suite 101</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── WELCOME / ABOUT ──────────────────────────────────────────── -->
+<section id="welcome" class="section">
+  <div class="container">
+    <div class="welcome-grid">
+      <div class="welcome-img-wrap">
+        <div class="welcome-img" role="img" aria-label="Pastor Zack Cherian">
+          <div class="welcome-img-placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <p style="margin-top:.5rem; font-size:.75rem">Pastor Photo</p>
+          </div>
+        </div>
+        <div class="welcome-badge">
+          <strong>10 AM</strong>
+          <span>Every Sunday</span>
+        </div>
+      </div>
+
+      <div class="welcome-text">
+        <span class="label">Welcome</span>
+        <h2 class="section-heading">God Values You</h2>
+        <p style="font-size:1.05rem; color:var(--muted); line-height:1.8; margin-bottom:1.25rem;">
+          At Rest Church, we believe "REST" is not passive — it's a dynamic, transformative experience. It empowers you to discover your purpose and fulfill your calling through divine strength.
+        </p>
+        <p style="font-size:1.05rem; color:var(--muted); line-height:1.8; margin-bottom:1.25rem;">
+          God values you and has an incredible plan for your life. No matter where you're from or what you've been through, you are embraced, empowered, and equipped here.
+        </p>
+        <div class="pastor-sig">
+          <div class="pastor-avatar">ZC</div>
+          <div>
+            <div class="pastor-sig-name">Pastor Zack Cherian</div>
+            <div class="pastor-sig-title">Senior Pastor, Rest Church</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MISSION / VISION ─────────────────────────────────────────── -->
+<section id="mission" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label" style="color:var(--gold-light)">Who We Are</span>
+      <h2 class="section-heading" style="color:var(--white)">Our Vision & Mission</h2>
+    </div>
+    <div class="mission-cards">
+      <article class="mission-card">
+        <div class="mission-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <h3>Our Vision</h3>
+        <p>A church for all people, where everyone feels embraced, empowered, and equipped to transform their world through the Grace of the Trinity.</p>
+      </article>
+      <article class="mission-card">
+        <div class="mission-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Our Mission</h3>
+        <p>A welcoming home for all, rooted in the unconditional love of the Father, the finished work of the resurrected Christ, and the joy and fellowship of the Holy Spirit.</p>
+      </article>
+      <article class="mission-card">
+        <div class="mission-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Our Community</h3>
+        <p>We believe all believers comprise the priesthood, with the local church essential to empowering people across culture and establishing God's kingdom on earth.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CORE VALUES ──────────────────────────────────────────────── -->
+<section id="values" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">What We Stand For</span>
+      <h2 class="section-heading">Our Core Values</h2>
+      <p class="section-sub">Seven values that shape everything we do as a community.</p>
+    </div>
+    <div class="values-grid">
+      <article class="value-card">
+        <div class="value-num">01</div>
+        <div class="value-name">Good News</div>
+        <p class="value-desc">Revealing Christ &amp; our Union with the Trinity</p>
+      </article>
+      <article class="value-card">
+        <div class="value-num">02</div>
+        <div class="value-name">Community</div>
+        <p class="value-desc">Doing life together in authentic relationship</p>
+      </article>
+      <article class="value-card">
+        <div class="value-num">03</div>
+        <div class="value-name">Honor</div>
+        <p class="value-desc">Valuing what God values — every person matters</p>
+      </article>
+      <article class="value-card">
+        <div class="value-num">04</div>
+        <div class="value-name">Faith</div>
+        <p class="value-desc">With God all things are possible — we believe it</p>
+      </article>
+      <article class="value-card">
+        <div class="value-num">05</div>
+        <div class="value-name">Generosity</div>
+        <p class="value-desc">Blessed to be a blessing to others</p>
+      </article>
+      <article class="value-card">
+        <div class="value-num">06</div>
+        <div class="value-name">Supernatural</div>
+        <p class="value-desc">Manifesting heaven on earth through the Spirit</p>
+      </article>
+      <article class="value-card">
+        <div class="value-num">07</div>
+        <div class="value-name">Excellence</div>
+        <p class="value-desc">Serving as unto the Lord in everything we do</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MINISTRIES ───────────────────────────────────────────────── -->
+<section id="ministries" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Get Involved</span>
+      <h2 class="section-heading">Our Ministries</h2>
+      <p class="section-sub">A place for every person — find your community and grow in your calling.</p>
+    </div>
+    <div class="min-grid">
+
+      <article class="min-card">
+        <div class="min-card-top"></div>
+        <div class="min-card-body">
+          <div class="min-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>RC Kidz</h3>
+          <p>Fun and safe age-appropriate Bible stories, worship, and prayer for children 0–12 years. Inspiring the next generation to change the world for Christ.</p>
+          <span class="min-tag">Ages 0–12 · Sundays 10 AM</span>
+        </div>
+      </article>
+
+      <article class="min-card">
+        <div class="min-card-top"></div>
+        <div class="min-card-body">
+          <div class="min-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>RC Youth</h3>
+          <p>High school and middle school students gathering for worship, prayer, and Christ-centered friendship. Helping students grow into the destiny God has in store.</p>
+          <span class="min-tag">Wednesdays 7 PM</span>
+        </div>
+      </article>
+
+      <article class="min-card">
+        <div class="min-card-top"></div>
+        <div class="min-card-body">
+          <div class="min-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3>Women of Rest</h3>
+          <p>Empowering women to understand their identity in Christ. Monthly gatherings with shared meals, worship, ministry time, and one-on-one prayer.</p>
+          <span class="min-tag">Monthly · Saturdays</span>
+        </div>
+      </article>
+
+      <article class="min-card">
+        <div class="min-card-top"></div>
+        <div class="min-card-body">
+          <div class="min-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Men's Breakfast</h3>
+          <p>Monthly gathering for men featuring fellowship, shared meals, one-on-one interaction, prayer, and uplifting biblical teaching. As iron sharpens iron.</p>
+          <span class="min-tag">Monthly · Saturdays 9 AM</span>
+        </div>
+      </article>
+
+      <article class="min-card">
+        <div class="min-card-top"></div>
+        <div class="min-card-body">
+          <div class="min-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>EPIC Life Groups</h3>
+          <p>Equipping People In Christ — weekly life groups throughout San Antonio for worship, prayer, Bible study, to equip, edify, and empower every believer.</p>
+          <span class="min-tag">Weekly · City-wide</span>
+        </div>
+      </article>
+
+      <article class="min-card">
+        <div class="min-card-top"></div>
+        <div class="min-card-body">
+          <div class="min-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <h3>RC Cares</h3>
+          <p>Our outreach ministry dedicated to serving the San Antonio community with the love of Christ — meeting practical needs and sharing the good news.</p>
+          <span class="min-tag">Community Outreach</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── EVENTS ───────────────────────────────────────────────────── -->
+<section id="events" class="section">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr auto; align-items:flex-end; gap:1rem; margin-bottom:3rem; flex-wrap:wrap;">
+      <div>
+        <span class="label">Calendar</span>
+        <h2 class="section-heading">Upcoming Events</h2>
+      </div>
+      <a href="#contact" class="btn btn-outline-navy" style="margin-bottom:.25rem;">View All</a>
+    </div>
+
+    <div class="events-list">
+
+      <article class="event-item">
+        <div class="event-date">
+          <div class="event-date-month">Thu</div>
+          <div class="event-date-day">21</div>
+        </div>
+        <div>
+          <div class="event-name">Weekly Prayer Call</div>
+          <div class="event-meta">Every Thursday · Online</div>
+        </div>
+        <div class="event-time">8:00 – 8:30 PM</div>
+      </article>
+
+      <article class="event-item">
+        <div class="event-date">
+          <div class="event-date-month">Sat</div>
+          <div class="event-date-day">11</div>
+        </div>
+        <div>
+          <div class="event-name">Men's Breakfast</div>
+          <div class="event-meta">Monthly · 19314 US-281 N, Suite 101</div>
+        </div>
+        <div class="event-time">9:00 – 11:00 AM</div>
+      </article>
+
+      <article class="event-item">
+        <div class="event-date">
+          <div class="event-date-month">Sat</div>
+          <div class="event-date-day">18</div>
+        </div>
+        <div>
+          <div class="event-name">Women of Rest</div>
+          <div class="event-meta">Monthly · 19314 US-281 N, Suite 101</div>
+        </div>
+        <div class="event-time">10:00 AM – 12 PM</div>
+      </article>
+
+      <article class="event-item">
+        <div class="event-date">
+          <div class="event-date-month">Sun</div>
+          <div class="event-date-day">—</div>
+        </div>
+        <div>
+          <div class="event-name">Sunday Worship Service</div>
+          <div class="event-meta">Every Sunday · In-person &amp; Livestream</div>
+        </div>
+        <div class="event-time">10:00 AM CST</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── MEDIA / SERMONS ──────────────────────────────────────────── -->
+<section id="media" class="section">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr auto; align-items:flex-end; gap:1rem; margin-bottom:3rem;">
+      <div>
+        <span class="label">Messages</span>
+        <h2 class="section-heading">Recent Sermons</h2>
+      </div>
+      <a href="https://www.youtube.com/@ZCIMTV" target="_blank" rel="noopener" class="btn btn-outline-navy" style="margin-bottom:.25rem;">All Sermons ↗</a>
+    </div>
+
+    <div class="sermon-grid">
+
+      <article class="sermon-card">
+        <div class="sermon-thumb">
+          <div class="sermon-play" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">REST Series</div>
+          <div class="sermon-title">REST — Part 4: Our Position in Christ</div>
+          <div class="sermon-meta">Pastor Zack Cherian · Feb 9, 2020</div>
+        </div>
+      </article>
+
+      <article class="sermon-card">
+        <div class="sermon-thumb">
+          <div class="sermon-play" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">REST Series</div>
+          <div class="sermon-title">REST — Part 3: Settled Forever</div>
+          <div class="sermon-meta">Pastor Zack Cherian · Feb 2, 2020</div>
+        </div>
+      </article>
+
+      <article class="sermon-card">
+        <div class="sermon-thumb">
+          <div class="sermon-play" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">The David Series</div>
+          <div class="sermon-title">The David Series — Part 1</div>
+          <div class="sermon-meta">Pastor Zack Cherian · Aug 9, 2020</div>
+        </div>
+      </article>
+
+      <article class="sermon-card">
+        <div class="sermon-thumb">
+          <div class="sermon-play" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">Gospel of Grace</div>
+          <div class="sermon-title">Gospel of Grace — Part 3</div>
+          <div class="sermon-meta">Pastor Zack Cherian · 2021</div>
+        </div>
+      </article>
+
+      <article class="sermon-card">
+        <div class="sermon-thumb">
+          <div class="sermon-play" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">Special Service</div>
+          <div class="sermon-title">Resurrection Service 2021</div>
+          <div class="sermon-meta">Pastor Zack Cherian · Easter 2021</div>
+        </div>
+      </article>
+
+      <article class="sermon-card">
+        <div class="sermon-thumb">
+          <div class="sermon-play" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">REST Series</div>
+          <div class="sermon-title">Wisdom for 2020</div>
+          <div class="sermon-meta">Pastor Zack Cherian · Jan 12, 2020</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── KNOW JESUS ───────────────────────────────────────────────── -->
+<section id="know-jesus" class="section">
+  <div class="kj-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="kj-content">
+      <span class="label" style="color:var(--gold-light)">The Most Important Decision</span>
+      <h2 class="section-heading">Know Jesus</h2>
+      <p>
+        God values you deeply and has an incredible plan for your life. Jesus lived perfectly and gave His life so that you could be restored — not through your own works, but through His grace. He offers connection with your Creator and a new beginning today.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;">
+        <a href="#contact" class="btn btn-primary">I Want to Know More</a>
+        <a href="#contact" class="btn btn-outline">Request Prayer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GIVE ─────────────────────────────────────────────────────── -->
+<section id="give" class="section">
+  <div class="container">
+    <div class="give-inner">
+      <div class="give-text">
+        <span class="label">Partner With Us</span>
+        <h2 class="section-heading">Give &amp; Support</h2>
+        <p>
+          Your generous giving partners with what God is doing through Rest Church in San Antonio and beyond. Every gift is an act of faith and helps us reach, serve, and empower more lives.
+        </p>
+        <p>"Blessed to be a blessing" — generosity is one of our core values. Thank you for your faithful support of the house of the Lord.
+        </p>
+        <a href="https://app.churchcenter.com/giving" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:.5rem;">
+          Give Now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="give-card">
+        <div class="give-icon-wrap" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Online Giving</h3>
+        <p>Securely give online through our Church Center platform. One-time or recurring — every gift makes a difference in our community.</p>
+        <a href="https://app.churchcenter.com/giving" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; justify-content:center;">
+          Donate Securely
+        </a>
+        <p style="font-size:.75rem; color:var(--muted); margin-top:1rem; margin-bottom:0;">Powered by Church Center</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ──────────────────────────────────────────────────── -->
+<section id="contact" class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div>
+        <span class="label">Get In Touch</span>
+        <h2 class="section-heading">We'd Love to Connect</h2>
+        <p style="color:var(--muted); font-size:.95rem; line-height:1.75; margin:1rem 0 2rem;">
+          Whether you have a question, need prayer, or want to get involved — reach out and our team will get back to you soon.
+        </p>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Address</div>
+            <div class="contact-info-val">19314 U.S. 281 N, Suite 101<br>San Antonio, TX 78256</div>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15.92v1z"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Phone / Prayer Line</div>
+            <div class="contact-info-val">+1 (210) 650-2087</div>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Sunday Service</div>
+            <div class="contact-info-val">10:00 AM · In-person &amp; Livestream</div>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Follow Us</div>
+            <div class="social-links">
+              <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              </a>
+              <a href="https://instagram.com/rest.churchsa" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="https://www.youtube.com/@ZCIMTV" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/></svg>
+              </a>
+              <a href="https://twitter.com/brazengracesa" target="_blank" rel="noopener" class="social-link" aria-label="Twitter / X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">First Name</label>
+            <input type="text" id="cf-name" name="first_name" placeholder="Jane" required />
+          </div>
+          <div class="form-field">
+            <label for="cf-last">Last Name</label>
+            <input type="text" id="cf-last" name="last_name" placeholder="Doe" required />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-email">Email Address</label>
+          <input type="email" id="cf-email" name="email" placeholder="jane@example.com" required />
+        </div>
+        <div class="form-field">
+          <label for="cf-phone">Phone (optional)</label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="+1 (210) 000-0000" />
+        </div>
+        <div class="form-field">
+          <label for="cf-subject">I'd like to…</label>
+          <select id="cf-subject" name="subject">
+            <option value="">Select a reason</option>
+            <option value="connect">Connect with the church</option>
+            <option value="prayer">Request prayer</option>
+            <option value="jesus">Learn more about Jesus</option>
+            <option value="ministries">Join a ministry</option>
+            <option value="give">Ask about giving</option>
+            <option value="general">General question</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" name="message" placeholder="Tell us how we can help…" required></textarea>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.75rem;">
+          <p class="form-status" id="form-status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary">
+            Send Message
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-brand-name">Rest. Church</div>
+        <div class="footer-brand-sub">San Antonio, TX</div>
+        <p class="footer-brand-desc">A thriving Christian community worshiping God together. All are welcome — come as you are.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Church</h4>
+        <ul>
+          <li><a href="#welcome">About Us</a></li>
+          <li><a href="#mission">Vision &amp; Mission</a></li>
+          <li><a href="#values">Our Beliefs</a></li>
+          <li><a href="#know-jesus">Know Jesus</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ministries</h4>
+        <ul>
+          <li><a href="#ministries">RC Kidz</a></li>
+          <li><a href="#ministries">RC Youth</a></li>
+          <li><a href="#ministries">Women of Rest</a></li>
+          <li><a href="#ministries">Men's Breakfast</a></li>
+          <li><a href="#ministries">EPIC Life Groups</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#media">Sermons</a></li>
+          <li><a href="#give">Give</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="https://www.youtube.com/@ZCIMTV" target="_blank" rel="noopener">Watch Live ↗</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="footer-year"></span> Brazen Grace Fellowship. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://instagram.com/rest.churchsa" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@ZCIMTV" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.186a2.505 2.505 0 00-1.762-1.762C18.254 5 12 5 12 5s-6.254 0-7.82.424A2.505 2.505 0 002.418 7.186C2 8.751 2 12 2 12s0 3.249.418 4.814a2.505 2.505 0 001.762 1.762C5.746 19 12 19 12 19s6.254 0 7.82-.424a2.505 2.505 0 001.762-1.762C22 15.249 22 12 22 12s0-3.249-.418-4.814zM10 15V9l5.2 3-5.2 3z"/></svg>
+        </a>
+        <a href="https://twitter.com/brazengracesa" target="_blank" rel="noopener" class="social-link" aria-label="Twitter / X">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── Scripts ──────────────────────────────────────────────────── -->
+<script>
+  // Footer year
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  // Sticky header
+  const header = document.getElementById('site-header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile nav toggle
+  const toggle   = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close mobile nav on link click
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Contact form
+  const form   = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className = 'form-status';
+    status.textContent = 'Sending…';
+
+    const data = Object.fromEntries(new FormData(form));
+    console.log('Form submission:', data);
+
+    // ── Wire up a real endpoint here ──────────────────────────────
+    // Option A – Formspree:
+    //   const res = await fetch('https://formspree.io/f/YOUR_ID', {
+    //     method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form)
+    //   });
+    //   if (res.ok) { ... } else { ... }
+    //
+    // Option B – EmailJS, Web3Forms, your own API, etc.
+    // ─────────────────────────────────────────────────────────────
+
+    // Placeholder (remove once endpoint is connected):
+    await new Promise(r => setTimeout(r, 700));
+    form.reset();
+    status.className = 'form-status success';
+    status.textContent = "Message sent! We'll be in touch soon.";
+    setTimeout(() => { status.textContent = ''; }, 6000);
+  });
+
+  // Smooth scroll active nav highlight
+  const sections = document.querySelectorAll('section[id], div[id="times-bar"]');
+  const navLinks  = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          link.style.color = href === '#' + entry.target.id ? 'var(--navy)' : '';
+          link.style.fontWeight = href === '#' + entry.target.id ? '600' : '';
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

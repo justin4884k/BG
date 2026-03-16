@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+
+<Layout
+  title="Our Beliefs"
+  description="Explore what Rest Church believes about the Bible, the Trinity, salvation, the Holy Spirit, and more."
+>
+
+  <PageHero
+    eyebrow="Doctrine"
+    title="Our Beliefs"
+    subtitle="What we believe shapes how we live, worship, and serve. These are the foundational truths of Rest Church."
+    breadcrumb={[{ label: 'About Us', href: '/about' }, { label: 'Our Beliefs', href: '' }]}
+    bgImage="https://brazengrace.org/wp-content/uploads/2020/11/About-Us-Page-_Our-Beliefs_-Section-2.jpg"
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="beliefs-layout">
+
+        <!-- Sidebar nav -->
+        <aside class="beliefs-nav" aria-label="Belief sections">
+          <p class="nav-heading">Jump to</p>
+          <ul>
+            <li><a href="#trinity">The Trinity</a></li>
+            <li><a href="#scripture">Scripture</a></li>
+            <li><a href="#salvation">Salvation</a></li>
+            <li><a href="#cross">The Cross</a></li>
+            <li><a href="#spirit">The Holy Spirit</a></li>
+            <li><a href="#church">The Church</a></li>
+            <li><a href="#life">Abundant Life</a></li>
+          </ul>
+          <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+            <a href="/know-jesus" class="btn btn-primary" style="width:100%; justify-content:center; font-size:.82rem;">Know Jesus →</a>
+          </div>
+        </aside>
+
+        <!-- Beliefs content -->
+        <div class="beliefs-content">
+
+          <article id="trinity" class="belief-block">
+            <div class="belief-num">01</div>
+            <h2>The Trinity</h2>
+            <p>We believe in one God eternally existing in three persons: Father, Son, and Holy Spirit. These three are co-equal, co-eternal, and of the same divine nature.</p>
+            <p>Jesus Christ is God's only begotten Son, fully divine and fully human. He was born of the Virgin Mary, lived a sinless life, was crucified, buried, and rose bodily on the third day. He ascended to the right hand of the Father, where He intercedes for us today.</p>
+          </article>
+
+          <article id="scripture" class="belief-block">
+            <div class="belief-num">02</div>
+            <h2>Scripture</h2>
+            <p>We believe the Bible is the holy Scripture inspired by God, revealing all things necessary for doctrine, reproof, correction, and instruction in righteousness, and for eternal salvation through faith in Jesus Christ.</p>
+            <blockquote>"All Scripture is God-breathed and is useful for teaching, rebuking, correcting and training in righteousness." — 2 Timothy 3:16</blockquote>
+          </article>
+
+          <article id="salvation" class="belief-block">
+            <div class="belief-num">03</div>
+            <h2>Salvation</h2>
+            <p>Salvation is God's free gift to humanity. It comes through faith in Jesus Christ — not by human works, effort, or merit. God's grace is the only basis for our right standing before Him.</p>
+            <p>We believe that all who confess with their mouth and believe in their heart that Jesus is Lord and that God raised Him from the dead will be saved and receive eternal life.</p>
+            <blockquote>"For it is by grace you have been saved, through faith — and this is not from yourselves, it is the gift of God." — Ephesians 2:8</blockquote>
+          </article>
+
+          <article id="cross" class="belief-block">
+            <div class="belief-num">04</div>
+            <h2>The Cross</h2>
+            <p>We believe in the finished work of Christ on the cross. Jesus bore our sin, sickness, and poverty so that we might receive His righteousness, wholeness, and provision. "Jesus, who knew no sin, became sin, so we through Him might become the righteousness of God."</p>
+            <p>Through His death and resurrection, every blessing purchased at Calvary is available to the believer by faith. We do not earn these blessings — we receive them as heirs of God and co-heirs with Christ.</p>
+          </article>
+
+          <article id="spirit" class="belief-block">
+            <div class="belief-num">05</div>
+            <h2>The Holy Spirit</h2>
+            <p>We believe in water baptism as an outward sign of the inward transformation that occurs at the new birth. We also affirm the baptism of the Holy Spirit with the evidence of speaking in other tongues, as well as the ongoing gifts and fruit of the Spirit in the life of every believer.</p>
+            <p>The Holy Spirit dwells in every born-again believer, guides us into all truth, empowers us for service, and manifests the kingdom of God through signs, wonders, and transformed lives.</p>
+          </article>
+
+          <article id="church" class="belief-block">
+            <div class="belief-num">06</div>
+            <h2>The Church</h2>
+            <p>We believe all believers comprise the universal priesthood. The local church is essential to God's plan for empowering people across every culture and establishing His kingdom on earth.</p>
+            <p>The church is not a building — it is a living community of people in covenant with God and with one another, called to represent Christ to the world through love, service, and proclamation of the Good News.</p>
+          </article>
+
+          <article id="life" class="belief-block">
+            <div class="belief-num">07</div>
+            <h2>Abundant Life</h2>
+            <p>We believe believers possess every resource needed for godly, Spirit-empowered living. Through Christ, we are sons and daughters of God, and we are called to demonstrate that sonship by establishing His kingdom wherever we go.</p>
+            <p>Jesus said, "I have come that they may have life, and have it to the full" (John 10:10). Abundant life is not just a future promise — it is the present reality of every believer walking in the fullness of God's grace.</p>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-sm" style="background:var(--navy); text-align:center;">
+    <div class="container" style="max-width:580px;">
+      <h2 style="color:#fff; font-family:'Playfair Display',serif; font-size:1.9rem; margin-bottom:.75rem;">Want to Know More?</h2>
+      <p style="color:rgba(255,255,255,.65); font-size:1rem; line-height:1.75; margin-bottom:1.75rem;">If you have questions about our faith or want to explore what it means to know Jesus personally, we'd love to talk.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/know-jesus" class="btn btn-primary">Know Jesus</a>
+        <a href="/contact"    class="btn btn-outline-white">Ask a Question</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .beliefs-layout {
+    display: grid; grid-template-columns: 220px 1fr; gap: 4rem; align-items: start;
+  }
+
+  /* Sidebar */
+  .beliefs-nav {
+    position: sticky; top: calc(var(--header-h) + 1.5rem);
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.5rem;
+  }
+  .nav-heading {
+    font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: .85rem;
+  }
+  .beliefs-nav ul { display: flex; flex-direction: column; gap: .2rem; }
+  .beliefs-nav ul a {
+    display: block; padding: .5rem .75rem;
+    font-size: .875rem; color: var(--text);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition), color var(--transition);
+  }
+  .beliefs-nav ul a:hover { background: var(--white); color: var(--navy); }
+
+  /* Belief blocks */
+  .beliefs-content { display: flex; flex-direction: column; gap: 0; }
+  .belief-block {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .belief-block:last-child { border-bottom: none; }
+  .belief-num {
+    font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: .5rem;
+  }
+  .belief-block h2 {
+    font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem;
+  }
+  .belief-block p {
+    font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem;
+  }
+  .belief-block blockquote {
+    font-size: .93rem; color: var(--navy);
+    border-left: 3px solid var(--gold); padding: .75rem 1.25rem;
+    background: var(--cream); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-style: italic; line-height: 1.7; margin-top: 1.25rem;
+  }
+
+  @media (max-width: 860px) {
+    .beliefs-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .beliefs-nav { position: static; }
+  }
+</style>

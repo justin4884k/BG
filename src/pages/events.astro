@@ -1,0 +1,175 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const recurring = [
+  { day:'Sun', name:'Sunday Worship Service', time:'10:00 AM CST', location:'19314 US-281 N, Suite 101 + Livestream', badge:'Every Sunday',   color:'var(--navy)', img:'https://brazengrace.org/wp-content/uploads/2020/08/gc1.jpg' },
+  { day:'Wed', name:'RC Youth',               time:'7:00 PM',       location:'19314 US-281 N, Suite 101',             badge:'Every Wednesday', color:'#E85F4F',      img:'https://brazengrace.org/wp-content/uploads/2021/01/Game-Changers-Ministry-Page-Image-1.jpg' },
+  { day:'Thu', name:'Weekly Prayer Call',     time:'8:00 – 8:30 PM', location:'Online',                              badge:'Every Thursday',  color:'var(--gold)', img:'https://brazengrace.org/wp-content/uploads/2020/10/Weekly-Prayer-Call-Events-Section-Image.jpg' },
+];
+
+const upcoming = [
+  { month:'Jan', day:'11', name:"Men's Breakfast",  time:'9:00 – 11:00 AM', location:'19314 US-281 N, Suite 101', desc:'Monthly gathering for men — food, fellowship, prayer, and biblical teaching.', img:'https://brazengrace.org/wp-content/uploads/2020/10/Mens-Breakfast-Events-Section-Image.jpg' },
+  { month:'Jan', day:'18', name:'Women of Rest',     time:'10:00 AM – 12 PM', location:'19314 US-281 N, Suite 101', desc:'Monthly gathering for women — worship, ministry, prayer, and community.', img:'https://brazengrace.org/wp-content/uploads/2020/10/Women-of-Grace-Events-Section-Picture.jpg' },
+];
+---
+
+<Layout title="Events" description="Upcoming events at Rest Church in San Antonio, TX — services, ministry gatherings, and special events.">
+
+  <PageHero
+    eyebrow="What's Happening"
+    title="Events & Calendar"
+    subtitle="Join us for worship, ministry gatherings, outreach, and more. There's always something happening at Rest Church."
+    breadcrumb={[{ label: 'Events', href: '' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Recurring -->
+      <div class="section-header">
+        <span class="section-label">Every Week</span>
+        <h2 class="section-heading">Recurring Gatherings</h2>
+      </div>
+      <div class="recurring-grid">
+        {recurring.map(e => (
+          <article class="recurring-card" style={`--accent:${e.color}`}>
+            <div class="recurring-bar"></div>
+            <div class="recurring-body">
+              <div class="recurring-thumb">
+                <img src={e.img} alt={e.name} loading="lazy" />
+              </div>
+              <div class="recurring-day">{e.day}</div>
+              <div>
+                <div class="recurring-name">{e.name}</div>
+                <div class="recurring-time">{e.time}</div>
+                <div class="recurring-location">{e.location}</div>
+              </div>
+              <span class="tag tag-gold">{e.badge}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Upcoming -->
+      <div class="section-header" style="margin-top:4rem;">
+        <span class="section-label">Upcoming</span>
+        <h2 class="section-heading">Special Events</h2>
+      </div>
+      <div class="upcoming-list">
+        {upcoming.map(e => (
+          <article class="upcoming-card">
+            <div class="event-date-block">
+              <div class="month">{e.month}</div>
+              <div class="day">{e.day}</div>
+            </div>
+            <div class="event-img-wrap">
+              <img src={e.img} alt={e.name} loading="lazy" />
+            </div>
+            <div class="upcoming-info">
+              <h3>{e.name}</h3>
+              <p class="upcoming-desc">{e.desc}</p>
+              <div class="upcoming-meta">
+                <span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  {e.time}
+                </span>
+                <span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  {e.location}
+                </span>
+              </div>
+            </div>
+            <a href="/contact" class="btn btn-outline-navy btn-sm" style="flex-shrink:0;">RSVP</a>
+          </article>
+        ))}
+      </div>
+
+      <!-- Stay Updated -->
+      <div class="stay-updated">
+        <div>
+          <h3>Stay Updated</h3>
+          <p>Sign up to receive news about upcoming events, service announcements, and more.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary">Get Updates</a>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Recurring */
+  .recurring-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .recurring-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    transition: box-shadow var(--transition);
+  }
+  .recurring-card:hover { box-shadow: var(--shadow); }
+  .recurring-bar { height: 4px; background: var(--accent); }
+  .recurring-thumb {
+    width: 80px; height: 64px; border-radius: var(--radius-sm);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .recurring-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .recurring-body {
+    padding: .85rem 1.25rem;
+    display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+  }
+  .recurring-day {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--accent);
+    width: 56px; text-align: center; flex-shrink: 0;
+  }
+  .recurring-name     { font-weight: 600; font-size: 1rem; color: var(--navy); }
+  .recurring-time     { font-size: .875rem; color: var(--gold); font-weight: 600; margin-top: .15rem; }
+  .recurring-location { font-size: .8rem; color: var(--muted); margin-top: .15rem; }
+
+  /* Upcoming */
+  .upcoming-list { display: flex; flex-direction: column; gap: 1.25rem; }
+  .event-img-wrap {
+    width: 100px; height: 80px; border-radius: var(--radius-sm);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .event-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .upcoming-card {
+    display: flex; align-items: flex-start; gap: 1.5rem;
+    padding: 1.5rem; background: var(--cream);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    transition: box-shadow var(--transition);
+  }
+  .upcoming-card:hover { box-shadow: var(--shadow); }
+  .event-date-block {
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius-sm); padding: .65rem .85rem;
+    text-align: center; flex-shrink: 0; min-width: 64px;
+  }
+  .month { font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; opacity: .65; }
+  .day   { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; line-height: 1.1; }
+  .upcoming-info { flex: 1; }
+  .upcoming-info h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: .4rem; }
+  .upcoming-desc    { font-size: .9rem; color: var(--muted); line-height: 1.65; margin-bottom: .75rem; }
+  .upcoming-meta {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    font-size: .8rem; color: var(--muted);
+  }
+  .upcoming-meta span { display: flex; align-items: center; gap: .35rem; }
+
+  /* Stay updated */
+  .stay-updated {
+    margin-top: 3.5rem; padding: 2rem 2.5rem;
+    background: var(--navy); border-radius: var(--radius-lg);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1.5rem; flex-wrap: wrap;
+  }
+  .stay-updated h3 { color: #fff; font-size: 1.3rem; margin-bottom: .35rem; }
+  .stay-updated p  { color: rgba(255,255,255,.65); font-size: .9rem; }
+
+  @media (max-width: 640px) {
+    .recurring-body { flex-wrap: wrap; gap: 1rem; }
+    .upcoming-card  { flex-direction: column; }
+    .stay-updated   { flex-direction: column; text-align: center; }
+  }
+</style>
